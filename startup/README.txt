@@ -9,6 +9,6 @@ startup/assets/images/hero-store.png
 
 상담 링크:
 카카오톡: http://pf.kakao.com/_BuxeTX/chat
-상담폼: https://forms.gle/pA9ekySJrvMmjEaj7
-전화: tel:023038289
-담당자: tel:01081614598
+상담신청: https://forms.gle/i74DPDHBFVofCt6m6
+전화: tel:01077823840
+담당자: tel:01077823840
