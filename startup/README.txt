@@ -1,20 +1,14 @@
-마린하우스코리아 랜딩페이지 수정본
+마린하우스코리아(주) startup 랜딩페이지 리뉴얼본
 
-수정 기준:
-- 내부용 표현 제거
-- 상품 번호 표현 제거
-- 고객용 문장으로 전면 재작성
-- 부드러운 폰트/간격/색감 적용
-- 우리 제품이 노출되는 사진 제거
-- 고화질 외부 이미지 URL 사용
-- 카카오톡 상담/상담폼/전화상담 연결 유지
+업로드 구조:
+startup/index.html
+startup/privacy.html
+startup/README.txt
+startup/assets/images/logo.png
+startup/assets/images/hero-store.png
 
 상담 링크:
-- 카카오톡 채널채팅: http://pf.kakao.com/_BuxeTX/chat
-- 상담폼: https://forms.gle/pA9ekySJrvMmjEaj7
-- 전화상담: 02-303-8289
-- 대표: 이민성 010-7782-3840
-
-주의:
-- 이미지가 외부 URL이라 인터넷 연결된 호스팅에서 정상 로딩됩니다.
-- GitHub Pages 배포 전 index.html을 먼저 열어 문구와 버튼을 확인하세요.
+카카오톡: http://pf.kakao.com/_BuxeTX/chat
+상담폼: https://forms.gle/pA9ekySJrvMmjEaj7
+전화: tel:023038289
+담당자: tel:01081614598
