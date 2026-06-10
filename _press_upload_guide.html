@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>보도자료 등록 가이드 | 마린하우스코리아(주)</title>
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main class="section"><div class="container press-guide">
+  <h1>보도자료 등록 가이드</h1>
+  <p>이 파일은 내부 작업용입니다. 홈페이지 메뉴와 사이트맵에는 연결하지 않았습니다.</p>
+
+  <h2>현재 방식</h2>
+  <p>현재 홈페이지는 GitHub Pages 정적 사이트라서 홈페이지 화면에서 로그인 후 글을 쓰는 게시판 방식은 아닙니다. 보도자료는 HTML 파일을 추가해서 올리는 방식으로 운영합니다.</p>
+
+  <h2>새 보도자료 올리는 순서</h2>
+  <ol class="number-list">
+    <li><code>_press_template.html</code> 파일을 복사합니다.</li>
+    <li>파일명을 영문 소문자와 하이픈으로 저장합니다. 예: <code>press/new-machine-launch.html</code></li>
+    <li>파일 안의 제목, 날짜, 요약, 본문을 새 보도자료 내용으로 바꿉니다.</li>
+    <li><code>press.html</code>에 새 보도자료 카드 1개를 추가합니다.</li>
+    <li><code>sitemap.xml</code>에 새 보도자료 URL을 추가합니다.</li>
+    <li>GitHub에서 변경 파일을 업로드하고 Commit 합니다.</li>
+  </ol>
+
+  <h2>고객에게 보이는 부분</h2>
+  <ul class="check-list">
+    <li>고객은 <code>press.html</code> 보도자료 목록만 봅니다.</li>
+    <li>이 가이드 파일은 메뉴에 노출되지 않습니다.</li>
+    <li>템플릿 파일도 검색 수집되지 않도록 설정했습니다.</li>
+  </ul>
+
+  <h2>네이버 검색 반영용 체크</h2>
+  <ul class="check-list">
+    <li>보도자료마다 독립 URL을 사용합니다.</li>
+    <li>제목과 요약을 <code>title</code>, <code>description</code>에 반영합니다.</li>
+    <li><code>sitemap.xml</code>에 새 URL을 추가합니다.</li>
+    <li>네이버 서치어드바이저에서 사이트맵을 제출합니다.</li>
+  </ul>
+
+  <p><a class="btn btn-dark" href="press.html">보도자료 목록 보기</a></p>
+</div></main>
+</body></html>

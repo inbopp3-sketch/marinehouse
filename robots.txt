@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /_press_upload_guide.html
+Disallow: /_press_template.html
+
+User-agent: Yeti
+Allow: /
+Disallow: /_press_upload_guide.html
+Disallow: /_press_template.html
 
 Sitemap: https://www.marinehouse.kr/sitemap.xml

@@ -1,0 +1,23 @@
+마린하우스코리아 보도자료 업로드 방법
+
+1. _press_template.html을 복사해서 press 폴더 안에 새 파일명으로 저장합니다.
+   예: press/new-machine-launch.html
+
+2. 새 파일 안에서 아래 항목을 바꿉니다.
+   - title
+   - meta description
+   - canonical 주소
+   - h1 제목
+   - 날짜
+   - 본문
+
+3. press.html에서 기존 press-card 한 묶음을 복사해 새 보도자료 카드로 붙입니다.
+
+4. sitemap.xml에 새 보도자료 URL을 추가합니다.
+
+5. GitHub에 변경된 파일을 업로드하고 Commit changes를 누릅니다.
+
+주의:
+- 홈페이지에서 관리자 로그인으로 글을 바로 쓰는 방식은 아닙니다.
+- 현재 GitHub Pages는 정적 홈페이지라서 HTML 파일 추가 방식으로 운영합니다.
+- _press_upload_guide.html과 _press_template.html은 메뉴에 노출하지 않습니다.
