@@ -1,14 +1,19 @@
-마린하우스코리아(주) startup 랜딩페이지 리뉴얼본
+마린하우스코리아 무자본 부업 창업 랜딩페이지 v7
 
-업로드 구조:
-startup/index.html
-startup/privacy.html
-startup/README.txt
-startup/assets/images/logo.png
-startup/assets/images/hero-store.png
+반영 내용
+- 실제 랜딩페이지 HTML/CSS 수정
+- 검정/차콜 프리미엄 테마 유지
+- 어색한 문구 전면 정리
+- 갈산동 운영 기준 문구 자연스럽게 수정
+- 전국 핵심 상권 운영 문구 수정
+- 메인 장비 이미지를 검정 배경에 맞는 컷아웃 이미지로 교체
+- 모바일 최적화 유지
 
-상담 링크:
-카카오톡: http://pf.kakao.com/_BuxeTX/chat
-상담신청: https://forms.gle/i74DPDHBFVofCt6m6
-전화: tel:01077823840
-담당자: tel:01077823840
+업로드 방법
+기존 startup 폴더에 index.html, assets 폴더를 그대로 덮어쓰기 하세요.
+
+
+[v8 수정]
+- 무자본 창업 컨셉에 맞게 투자금 미회수/환불 표현을 매출 기준 보장 표현으로 교체
+- 핵심 문구: 3개월 매출 기준 미달 시 본사 100% 보장
+- 갈산동 운영 문구 자연스럽게 수정
