@@ -80,8 +80,13 @@ h1,h2,h3{line-height:1.24;letter-spacing:-.055em}p{margin:0 0 16px;color:var(--m
 .adult-panel-badge.black{background:#16202d;color:#fff}
 .adult-panel-badge.silver{background:#e8edf2;color:#455467}
 .adult-panel-badge.gold{background:#fff0c9;color:#9a6711}
+.adult-panel-badge.model1{background:#e8f0ff;color:#0b4da2}
+.adult-panel-badge.model2{background:#e6f5ef;color:#116149}
 .adult-panel-body h3{font-size:27px;margin:0 0 10px}
 .adult-panel-body>p{margin:0 0 18px}
+.adult-model-features{display:grid;gap:9px;list-style:none;margin:auto 0 0;padding:16px 0 0;border-top:1px solid #e5ebf3}
+.adult-model-features li{position:relative;padding-left:20px;color:#31435a;font-size:14px;font-weight:750;line-height:1.55}
+.adult-model-features li:before{content:"✓";position:absolute;left:0;top:0;color:#0a58ca;font-weight:950}
 .adult-panel-specs{display:grid;gap:0;margin:auto 0 0;border-top:1px solid #e5ebf3}
 .adult-panel-specs div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid #e5ebf3}
 .adult-panel-specs dt{font-size:13px;font-weight:750;color:#718096}
