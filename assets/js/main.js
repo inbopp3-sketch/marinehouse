@@ -14,7 +14,7 @@ if (toggle && gnb) {
   const popup = document.getElementById('adultLaunchPopup');
   if (!popup) return;
 
-  const storageKey = 'mhkAdultLaunchHiddenUntil20260721';
+  const storageKey = 'mhkAdultLaunchHiddenUntil20260725';
   const closeButtons = popup.querySelectorAll('[data-popup-close]');
   const hideTodayButton = document.getElementById('adultLaunchHideToday');
 
