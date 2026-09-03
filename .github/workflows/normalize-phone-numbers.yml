@@ -1,0 +1,150 @@
+name: Normalize website phone numbers
+
+on:
+  push:
+    paths:
+      - ".github/workflows/normalize-phone-numbers.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-phone-numbers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Normalize all website phone numbers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          ROOT = Path('.')
+          TEXT_EXTENSIONS = {'.html', '.htm', '.txt', '.xml', '.js', '.css', '.md', '.json'}
+
+          OFFICE_DISPLAY = '02-744-7779'
+          OFFICE_TEL = '027447779'
+          MAIN_DISPLAY = '1544-9187'
+          MAIN_TEL = '15449187'
+          MOBILE_DISPLAY = '010-5609-2187'
+          MOBILE_TEL = '01056092187'
+
+          changed = []
+
+          def standardize_numbers(text: str) -> str:
+              # Old company number -> new company number.
+              text = re.sub(r'(?<!\d)032[\s.\-]*361[\s.\-]*7778(?!\d)', OFFICE_DISPLAY, text)
+              text = re.sub(r'(?<!\d)02[\s.\-]*744[\s.\-]*7779(?!\d)', OFFICE_DISPLAY, text)
+
+              # Representative and mobile numbers: normalize display format.
+              text = re.sub(r'(?<!\d)1544[\s.\-]*9187(?!\d)', MAIN_DISPLAY, text)
+              text = re.sub(r'(?<!\d)010[\s.\-]*5609[\s.\-]*2187(?!\d)', MOBILE_DISPLAY, text)
+
+              # Normalize tel links to digits only.
+              text = re.sub(r'tel:\s*02[\s.\-]*744[\s.\-]*7779', f'tel:{OFFICE_TEL}', text, flags=re.I)
+              text = re.sub(r'tel:\s*032[\s.\-]*361[\s.\-]*7778', f'tel:{OFFICE_TEL}', text, flags=re.I)
+              text = re.sub(r'tel:\s*1544[\s.\-]*9187', f'tel:{MAIN_TEL}', text, flags=re.I)
+              text = re.sub(r'tel:\s*010[\s.\-]*5609[\s.\-]*2187', f'tel:{MOBILE_TEL}', text, flags=re.I)
+              return text
+
+          def update_html(text: str) -> str:
+              # Header strip: show all three confirmed numbers consistently.
+              new_strip = (
+                  '<span>회사전화 02-744-7779 · 대표전화 1544-9187 · '
+                  '휴대전화 010-5609-2187</span>'
+              )
+              text = re.sub(
+                  r'<span>(?=[^<]*(?:대표전화|회사전화))[^<]*(?:1544-9187|02-744-7779|032-361-7778)[^<]*</span>',
+                  new_strip,
+                  text,
+              )
+
+              # Add company phone before every visible representative-phone paragraph,
+              # while preventing duplicates in the same contact block.
+              lines = text.splitlines()
+              out = []
+              for line in lines:
+                  if '<p>대표전화:' in line:
+                      recent = '\n'.join(out[-4:])
+                      if '회사전화:' not in recent:
+                          indent = line[:len(line) - len(line.lstrip())]
+                          out.append(
+                              f'{indent}<p>회사전화: <a href="tel:{OFFICE_TEL}">{OFFICE_DISPLAY}</a></p>'
+                          )
+                  out.append(line)
+              text = '\n'.join(out)
+
+              # Company-profile table: distinguish office, representative, and mobile.
+              if '<tr><th>Phone</th>' in text and '<tr><th>Office</th>' not in text:
+                  text = text.replace(
+                      f'<tr><th>Phone</th><td><a href="tel:{MAIN_TEL}">{MAIN_DISPLAY}</a></td></tr>',
+                      f'<tr><th>Office</th><td><a href="tel:{OFFICE_TEL}">{OFFICE_DISPLAY}</a></td></tr>\n'
+                      f'        <tr><th>Representative</th><td><a href="tel:{MAIN_TEL}">{MAIN_DISPLAY}</a></td></tr>',
+                  )
+
+              # Common contact-information rows using Korean labels.
+              if '대표번호' in text and OFFICE_DISPLAY not in text:
+                  text = text.replace(
+                      '대표번호',
+                      f'회사전화 {OFFICE_DISPLAY} · 대표번호',
+                      1,
+                  )
+              return text
+
+          for path in ROOT.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in TEXT_EXTENSIONS:
+                  continue
+              if '.git' in path.parts or '.github' in path.parts:
+                  continue
+              try:
+                  original = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+
+              updated = standardize_numbers(original)
+              if path.suffix.lower() in {'.html', '.htm'}:
+                  updated = update_html(updated)
+
+              if updated != original:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Changed files:')
+          for item in changed:
+              print(f' - {item}')
+
+          # Audit remaining phone-like strings in text files.
+          phone_pattern = re.compile(r'(?<!\d)(?:0\d{1,2}[\s.\-]*\d{3,4}[\s.\-]*\d{4}|1544[\s.\-]*9187)(?!\d)')
+          print('\nPhone-number audit:')
+          for path in ROOT.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in TEXT_EXTENSIONS:
+                  continue
+              if '.git' in path.parts or '.github' in path.parts:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              found = sorted(set(phone_pattern.findall(text)))
+              if found:
+                  print(f' - {path}: {found}')
+          PY
+
+      - name: Commit updated website files
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No phone-number changes were required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update all website phone numbers"
+          git push
