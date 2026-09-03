@@ -1,4 +1,4 @@
-name: Normalize website phone numbers
+name: Finalize website phone numbers
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  update-phone-numbers:
+  finalize-phone-numbers:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Normalize all website phone numbers
+      - name: Replace stale phone numbers and audit all text pages
         shell: bash
         run: |
           python3 - <<'PY'
@@ -37,64 +37,70 @@ jobs:
 
           changed = []
 
-          def standardize_numbers(text: str) -> str:
-              # Old company number -> new company number.
-              text = re.sub(r'(?<!\d)032[\s.\-]*361[\s.\-]*7778(?!\d)', OFFICE_DISPLAY, text)
-              text = re.sub(r'(?<!\d)02[\s.\-]*744[\s.\-]*7779(?!\d)', OFFICE_DISPLAY, text)
+          replacements = [
+              (r'(?<!\d)032[\s.\-]*361[\s.\-]*7778(?!\d)', OFFICE_DISPLAY),
+              (r'(?<!\d)02[\s.\-]*303[\s.\-]*8289(?!\d)', OFFICE_DISPLAY),
+              (r'(?<!\d)02[\s.\-]*744[\s.\-]*7779(?!\d)', OFFICE_DISPLAY),
+              (r'(?<!\d)1544[\s.\-]*9187(?!\d)', MAIN_DISPLAY),
+              (r'(?<!\d)010[\s.\-]*7782[\s.\-]*3840(?!\d)', MOBILE_DISPLAY),
+              (r'(?<!\d)010[\s.\-]*8161[\s.\-]*4598(?!\d)', MOBILE_DISPLAY),
+              (r'(?<!\d)010[\s.\-]*5609[\s.\-]*2187(?!\d)', MOBILE_DISPLAY),
+          ]
 
-              # Representative and mobile numbers: normalize display format.
-              text = re.sub(r'(?<!\d)1544[\s.\-]*9187(?!\d)', MAIN_DISPLAY, text)
-              text = re.sub(r'(?<!\d)010[\s.\-]*5609[\s.\-]*2187(?!\d)', MOBILE_DISPLAY, text)
+          tel_replacements = [
+              (r'tel:\s*(?:032[\s.\-]*361[\s.\-]*7778|02[\s.\-]*303[\s.\-]*8289|02[\s.\-]*744[\s.\-]*7779)', f'tel:{OFFICE_TEL}'),
+              (r'tel:\s*1544[\s.\-]*9187', f'tel:{MAIN_TEL}'),
+              (r'tel:\s*(?:010[\s.\-]*7782[\s.\-]*3840|010[\s.\-]*8161[\s.\-]*4598|010[\s.\-]*5609[\s.\-]*2187)', f'tel:{MOBILE_TEL}'),
+          ]
 
-              # Normalize tel links to digits only.
-              text = re.sub(r'tel:\s*02[\s.\-]*744[\s.\-]*7779', f'tel:{OFFICE_TEL}', text, flags=re.I)
-              text = re.sub(r'tel:\s*032[\s.\-]*361[\s.\-]*7778', f'tel:{OFFICE_TEL}', text, flags=re.I)
-              text = re.sub(r'tel:\s*1544[\s.\-]*9187', f'tel:{MAIN_TEL}', text, flags=re.I)
-              text = re.sub(r'tel:\s*010[\s.\-]*5609[\s.\-]*2187', f'tel:{MOBILE_TEL}', text, flags=re.I)
-              return text
+          plain_digit_replacements = {
+              '0323617778': OFFICE_TEL,
+              '023038289': OFFICE_TEL,
+              '027447779': OFFICE_TEL,
+              '15449187': MAIN_TEL,
+              '01077823840': MOBILE_TEL,
+              '01081614598': MOBILE_TEL,
+              '01056092187': MOBILE_TEL,
+          }
 
-          def update_html(text: str) -> str:
-              # Header strip: show all three confirmed numbers consistently.
-              new_strip = (
-                  '<span>회사전화 02-744-7779 · 대표전화 1544-9187 · '
-                  '휴대전화 010-5609-2187</span>'
-              )
-              text = re.sub(
-                  r'<span>(?=[^<]*(?:대표전화|회사전화))[^<]*(?:1544-9187|02-744-7779|032-361-7778)[^<]*</span>',
-                  new_strip,
-                  text,
-              )
+          def normalize(text: str, is_html: bool) -> str:
+              for pattern, replacement in tel_replacements:
+                  text = re.sub(pattern, replacement, text, flags=re.I)
 
-              # Add company phone before every visible representative-phone paragraph,
-              # while preventing duplicates in the same contact block.
-              lines = text.splitlines()
-              out = []
-              for line in lines:
-                  if '<p>대표전화:' in line:
-                      recent = '\n'.join(out[-4:])
-                      if '회사전화:' not in recent:
-                          indent = line[:len(line) - len(line.lstrip())]
-                          out.append(
-                              f'{indent}<p>회사전화: <a href="tel:{OFFICE_TEL}">{OFFICE_DISPLAY}</a></p>'
-                          )
-                  out.append(line)
-              text = '\n'.join(out)
+              for pattern, replacement in replacements:
+                  text = re.sub(pattern, replacement, text)
 
-              # Company-profile table: distinguish office, representative, and mobile.
-              if '<tr><th>Phone</th>' in text and '<tr><th>Office</th>' not in text:
-                  text = text.replace(
-                      f'<tr><th>Phone</th><td><a href="tel:{MAIN_TEL}">{MAIN_DISPLAY}</a></td></tr>',
-                      f'<tr><th>Office</th><td><a href="tel:{OFFICE_TEL}">{OFFICE_DISPLAY}</a></td></tr>\n'
-                      f'        <tr><th>Representative</th><td><a href="tel:{MAIN_TEL}">{MAIN_DISPLAY}</a></td></tr>',
+              for old, new in plain_digit_replacements.items():
+                  text = text.replace(old, new)
+
+              if is_html:
+                  # Normalize the main-site header phone strip.
+                  text = re.sub(
+                      r'<span>(?=[^<]*(?:회사전화|대표전화|휴대전화))[^<]*(?:02-744-7779|1544-9187|010-5609-2187)[^<]*</span>',
+                      '<span>회사전화 02-744-7779 · 대표전화 1544-9187 · 휴대전화 010-5609-2187</span>',
+                      text,
                   )
 
-              # Common contact-information rows using Korean labels.
-              if '대표번호' in text and OFFICE_DISPLAY not in text:
-                  text = text.replace(
-                      '대표번호',
-                      f'회사전화 {OFFICE_DISPLAY} · 대표번호',
-                      1,
+                  # Normalize privacy/contact summaries that previously reused an old office number as the representative number.
+                  text = re.sub(
+                      r'회사전화\s*:?[ ]*02-744-7779\s*·\s*대표(?:번호|전화)\s*:?\s*02-744-7779',
+                      '회사전화: 02-744-7779 · 대표전화: 1544-9187 · 휴대전화: 010-5609-2187',
+                      text,
                   )
+
+                  # Keep office, representative and mobile numbers explicit in visible contact blocks.
+                  if '<p>대표전화:' in text:
+                      lines = text.splitlines()
+                      out = []
+                      for line in lines:
+                          if '<p>대표전화:' in line:
+                              recent = '\n'.join(out[-4:])
+                              if '회사전화:' not in recent:
+                                  indent = line[:len(line) - len(line.lstrip())]
+                                  out.append(f'{indent}<p>회사전화: <a href="tel:{OFFICE_TEL}">{OFFICE_DISPLAY}</a></p>')
+                          out.append(line)
+                      text = '\n'.join(out)
+
               return text
 
           for path in ROOT.rglob('*'):
@@ -107,10 +113,7 @@ jobs:
               except UnicodeDecodeError:
                   continue
 
-              updated = standardize_numbers(original)
-              if path.suffix.lower() in {'.html', '.htm'}:
-                  updated = update_html(updated)
-
+              updated = normalize(original, path.suffix.lower() in {'.html', '.htm'})
               if updated != original:
                   path.write_text(updated, encoding='utf-8')
                   changed.append(str(path))
@@ -119,9 +122,24 @@ jobs:
           for item in changed:
               print(f' - {item}')
 
-          # Audit remaining phone-like strings in text files.
+          # Fail the workflow if any stale real contact number remains.
+          stale_patterns = {
+              '032-361-7778': r'(?<!\d)032[\s.\-]*361[\s.\-]*7778(?!\d)',
+              '02-303-8289': r'(?<!\d)02[\s.\-]*303[\s.\-]*8289(?!\d)',
+              '010-7782-3840': r'(?<!\d)010[\s.\-]*7782[\s.\-]*3840(?!\d)',
+              '010-8161-4598': r'(?<!\d)010[\s.\-]*8161[\s.\-]*4598(?!\d)',
+          }
+
+          stale_hits = []
           phone_pattern = re.compile(r'(?<!\d)(?:0\d{1,2}[\s.\-]*\d{3,4}[\s.\-]*\d{4}|1544[\s.\-]*9187)(?!\d)')
-          print('\nPhone-number audit:')
+          allowed_normalized = {
+              '027447779',
+              '15449187',
+              '01056092187',
+              '01000000000',  # Input example placeholder, not a company contact number.
+          }
+          unexpected = []
+
           for path in ROOT.rglob('*'):
               if not path.is_file() or path.suffix.lower() not in TEXT_EXTENSIONS:
                   continue
@@ -131,20 +149,38 @@ jobs:
                   text = path.read_text(encoding='utf-8')
               except UnicodeDecodeError:
                   continue
-              found = sorted(set(phone_pattern.findall(text)))
-              if found:
-                  print(f' - {path}: {found}')
+
+              for label, pattern in stale_patterns.items():
+                  if re.search(pattern, text):
+                      stale_hits.append(f'{path}: {label}')
+
+              for found in phone_pattern.findall(text):
+                  normalized = re.sub(r'\D', '', found)
+                  if normalized not in allowed_normalized:
+                      unexpected.append(f'{path}: {found}')
+
+          if stale_hits or unexpected:
+              print('\nStale or unexpected phone numbers remain:')
+              for item in sorted(set(stale_hits + unexpected)):
+                  print(f' - {item}')
+              raise SystemExit(1)
+
+          print('\nAudit passed. Allowed numbers only:')
+          print(f' - Company phone: {OFFICE_DISPLAY}')
+          print(f' - Representative phone: {MAIN_DISPLAY}')
+          print(f' - Mobile phone: {MOBILE_DISPLAY}')
           PY
 
-      - name: Commit updated website files
+      - name: Remove temporary workflow and commit final changes
         shell: bash
         run: |
-          if git diff --quiet; then
-            echo "No phone-number changes were required."
-            exit 0
-          fi
+          rm -f .github/workflows/normalize-phone-numbers.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Update all website phone numbers"
+          if git diff --cached --quiet; then
+            echo "No changes were required."
+            exit 0
+          fi
+          git commit -m "Finalize all website phone numbers"
           git push
