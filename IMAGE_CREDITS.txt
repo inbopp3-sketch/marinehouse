@@ -1,0 +1,3 @@
+테이블 배경: 내장 이미지 생성 도구로 제작.
+프롬프트: premium realistic overhead emerald green felt baccarat table texture, wide landscape, subtle gold trim and dark polished wooden edges, unmarked chips confined to top corners, clear central 80 percent for interactive cards, no text or UI.
+파일: dist/table.png

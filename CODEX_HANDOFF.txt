@@ -1,0 +1,10 @@
+이 폴더는 1인/2인 LAN 바카라 Android 앱 소스다. 최종 목표는 휴대폰에 설치 가능한 Club09-Baccarat.apk 생성이다. 기능을 웹사이트나 PC 서버로 바꾸지 말 것.
+
+1. README_KO.md와 app/src/main을 확인한다.
+2. 이 PC의 JDK/Android SDK를 찾아 Build-APK.ps1 또는 Gradle 8.11.1로 :app:assembleDebug를 실행한다. 빌드 도구가 없으면 설치 가능한 정식 Android 도구로 준비한다.
+3. 실제 컴파일 오류가 있으면 해결하고 APK 빌드를 완료한다. AGP 8.9.1, compileSdk 35, targetSdk 35, minSdk 26이다.
+4. 연결된 Android 폰이나 에뮬레이터가 있으면 설치·실행하여 WebView, 상단 시스템 영역, 혼자+봇을 확인한다. 두 기기가 있으면 LAN 호스트/입장/베팅/결과 일치를 확인한다.
+5. 최종 APK와 검증 결과를 전달한다. APK를 빌드하지 못했는데 완료했다고 주장하지 말 것.
+
+요구사항: 폰 자체가 호스트, 1인 봇 가능, 같은 Wi-Fi 2인 가능, 1만/5만/10만/50만 칩, 시작 100만 가상 칩, 생성한 테이블 이미지 유지. 실제 돈 기능 없음.
+앞선 환경은 SDK 다운로드가 자동 승인 검토에서 차단되어 APK를 생성하지 못했다. 순수 Java 게임 엔진과 HTTP 서버는 JVM에서 컴파일 및 106개 검사를 통과했다. Android MainActivity 전체 컴파일과 실기기 검증은 미수행이다.
