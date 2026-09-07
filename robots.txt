@@ -3,6 +3,11 @@ Allow: /
 Disallow: /_press_upload_guide.html
 Disallow: /_press_template.html
 
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /_press_upload_guide.html
+Disallow: /_press_template.html
+
 User-agent: Yeti
 Allow: /
 Disallow: /_press_upload_guide.html
