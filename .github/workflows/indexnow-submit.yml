@@ -1,0 +1,47 @@
+name: Submit updated pages to IndexNow
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'adult-verification.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'fb1a9eebc00bcd84bd4bf2a288b49519.txt'
+      - '.github/workflows/indexnow-submit.yml'
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages deployment
+        run: sleep 20
+      - name: Verify key file
+        run: |
+          curl --fail --retry 5 --retry-delay 5 https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt
+      - name: Submit homepage to Naver IndexNow
+        run: |
+          curl --fail --get 'https://searchadvisor.naver.com/indexnow' \
+            --data-urlencode 'url=https://www.marinehouse.kr/' \
+            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
+            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
+      - name: Submit adult verification page to Naver IndexNow
+        run: |
+          curl --fail --get 'https://searchadvisor.naver.com/indexnow' \
+            --data-urlencode 'url=https://www.marinehouse.kr/adult-verification.html' \
+            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
+            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
+      - name: Submit homepage to IndexNow network
+        run: |
+          curl --fail --get 'https://api.indexnow.org/indexnow' \
+            --data-urlencode 'url=https://www.marinehouse.kr/' \
+            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
+            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
+      - name: Submit adult verification page to IndexNow network
+        run: |
+          curl --fail --get 'https://api.indexnow.org/indexnow' \
+            --data-urlencode 'url=https://www.marinehouse.kr/adult-verification.html' \
+            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
+            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
