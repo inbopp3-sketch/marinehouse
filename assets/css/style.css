@@ -121,15 +121,21 @@ body.popup-open{overflow:hidden}
 .launch-popup{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:18px}
 .launch-popup.is-open{display:flex}
 .launch-popup-backdrop{position:absolute;inset:0;background:rgba(2,12,28,.76);backdrop-filter:blur(5px)}
-.launch-popup-panel{position:relative;z-index:1;width:min(610px,94vw);max-height:94vh;display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.38)}
-.launch-popup-close{position:absolute;right:12px;top:12px;z-index:3;width:42px;height:42px;border:0;border-radius:50%;background:rgba(3,19,43,.88);color:#fff;font-size:30px;line-height:1;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.22)}
-.launch-popup-image{display:block;overflow:auto;background:#edf3f9;text-align:center}
-.launch-popup-image img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;margin:auto;background:#fff}
-.launch-popup-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;background:#fff;border-top:1px solid #dce5ef}
-.launch-popup-actions button,.launch-popup-actions a{min-height:46px;display:flex;align-items:center;justify-content:center;border-radius:10px;font:inherit;font-weight:900;cursor:pointer}
-.launch-popup-day{border:1px solid #cad7e6;background:#f4f7fb;color:#31435a}
+.launch-popup-panel{position:relative;z-index:1;width:min(560px,100%,calc((100vh - 158px)*.800285));width:min(560px,100%,calc((100dvh - 158px)*.800285));max-height:100%;display:flex;flex-direction:column;background:#0b0d10;border:1px solid #65523a;border-radius:16px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.launch-popup-toolbar{height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding-left:14px;border-bottom:1px solid #3d3428;color:#d6c5aa;font-size:12px}
+.launch-popup-close{width:44px;height:44px;flex-shrink:0;border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.launch-popup-image{display:block;min-height:0;background:#0b0d10;text-align:center}
+.launch-popup-image img{display:block;width:100%;height:auto;margin:auto}
+.launch-popup-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#101216;border-top:1px solid #3d3428;flex-shrink:0}
+.launch-popup-actions button,.launch-popup-actions a{min-height:44px;padding:5px 3px;display:flex;align-items:center;justify-content:center;border-radius:8px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;text-align:center}
+.launch-popup-day{border:1px solid #565149;background:#191b20;color:#e2ddd5}
 .launch-popup-detail{border:1px solid #0a58ca;background:#0a58ca;color:#fff}
 .launch-popup-detail:hover{background:#074aa9}
+.launch-popup a:focus-visible,.launch-popup button:focus-visible{outline:3px solid #efc888;outline-offset:-4px}
+@media(max-height:500px){
+  .launch-popup-panel{width:min(440px,100%);max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px)}
+  .launch-popup-image{overflow-y:auto}
+}
 
 /* Supported ID cards */
 .adult-id-support{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:center;margin:0 0 32px;padding:28px;border:1px solid #cddcec;border-radius:20px;background:linear-gradient(135deg,#f5f9fe 0%,#edf5ff 55%,#f9fbfe 100%);box-shadow:0 12px 34px rgba(13,36,67,.07)}
@@ -142,10 +148,7 @@ body.popup-open{overflow:hidden}
 .adult-id-list b{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#0a58ca;color:#fff;font-size:11px;flex:0 0 auto}
 @media(max-width:720px){
   .launch-popup{padding:10px}
-  .launch-popup-panel{width:96vw;max-height:96vh;border-radius:15px}
-  .launch-popup-image img{max-height:76vh}
-  .launch-popup-actions{grid-template-columns:1fr;padding:10px}
-  .launch-popup-actions button,.launch-popup-actions a{min-height:43px}
+  .launch-popup-panel{border-radius:12px}
   .adult-id-support{grid-template-columns:1fr;padding:20px;gap:18px}
   .adult-id-copy h3{font-size:25px}
   .adult-id-list{grid-template-columns:1fr}
