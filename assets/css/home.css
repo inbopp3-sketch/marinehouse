@@ -201,3 +201,10 @@
 }
 @media(max-width:360px){.home-page .brand strong{font-size:14px}.mh-hero-art{height:236px}.mh-hero-actions .mh-button{font-size:12px;padding-inline:5px}.mh-price>p{font-size:16px}.mh-price strong{font-size:39px}.mh-benefits li{font-size:9px}.home-page .sales-team-list{grid-template-columns:1fr}.mh-consult-panel{padding:17px}.mh-consult-steps{gap:7px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mh-button,.mh-other-links .mh-icon{transition:none}}
+
+/* Adult verification installation example */
+.mh-install-example{background:#fff}
+.mh-install-example-photo{margin:0 auto;max-width:1040px}
+.mh-install-example-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:14px;border:1px solid #dbe5ef}
+.mh-install-example-photo figcaption{margin-top:14px;color:#60748b;font-size:14px;line-height:1.6;text-align:center}
+@media(max-width:600px){.mh-install-example-photo img{border-radius:8px}.mh-install-example-photo figcaption{text-align:left}}
