@@ -10,6 +10,8 @@
   <meta property="og:image" content="assets/images/logo-full.png">
   <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css?v=20260910-blue-popup">
+  <link rel="stylesheet" href="assets/css/home.css?v=20260910-home">
+  <link rel="canonical" href="https://www.marinehouse.kr/">
 
   <script type="application/ld+json">
   {
@@ -23,169 +25,152 @@
   }
   </script>
 </head>
-<body>
+<body class="home-page">
 <a class="skip" href="#main">본문 바로가기</a>
-<div class="top-strip">
-  <div class="container top-strip-inner">
-    <span>ADULT VERIFICATION · ACCESS CONTROL · UNMANNED SYSTEM</span>
-    <span>회사전화 02-744-7779 · 대표번호 1544-9187 · 영업 1~4팀 상담 운영</span>
-  </div>
-</div>
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="index.html" aria-label="마린하우스코리아 홈">
-      <img src="assets/images/logo-full.png" alt="마린하우스코리아 로고">
-      <span><strong>마린하우스코리아(주)</strong><small>Manufacturing & Unmanned Retail Technology</small></span>
+      <span class="home-brand-mark"><img src="assets/images/logo-full.png" alt="" width="64" height="64"></span>
+      <strong>마린하우스코리아(주)</strong>
     </a>
-    <nav class="gnb" id="gnb" aria-label="주요 메뉴"><a class="active" href="index.html">홈</a><a class="" href="about.html">회사소개</a><a class="" href="adult-verification.html">성인인증 출입관리</a><a class="" href="products.html">제품소개</a><a class="" href="business.html">사업영역</a><a class="" href="press.html">보도자료</a><a class="" href="support.html">고객지원</a><a class="" href="location.html">오시는 길</a></nav>
-    <a class="header-cta" href="tel:1544-9187">전화상담</a>
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+      <a class="active" href="#adult-features">성인인증기</a>
+      <a href="#installation">도입 안내</a>
+      <a href="#aftercare">설치·A/S</a>
+      <a href="about.html">회사소개</a>
+      <a href="products.html">기타 제품</a>
+    </nav>
+    <a class="header-cta" href="tel:1544-9187" aria-label="전화상담 1544-9187"><svg class="mh-icon" aria-hidden="true"><use href="#mh-call"></use></svg><span>상담 1544-9187</span></a>
     <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="gnb" aria-expanded="false">☰</button>
   </div>
 </header>
 <main id="main">
-<section class="hero hero-corporate">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="kicker-light">MARINE HOUSE KOREA</span>
-      <h1>성인인증 출입문관리 시스템부터<br>무인기기 공급·설치·유지관리까지</h1>
-      <p>마린하우스코리아(주)는 성인인증 키오스크와 출입문 제어를 연동한 성인인증 출입문관리 시스템을 비롯해 무인 자동화기기, 자동판매기, 아케이드 게임기의 공급·설치·운영 지원을 수행합니다.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="adult-verification.html">성인인증 출입관리</a>
-        <a class="btn btn-outline-light" href="products.html">전체 제품 라인업</a>
+  <section class="mh-hero" aria-labelledby="hero-title">
+    <div class="mh-container mh-hero-grid">
+      <div class="mh-intro">
+        <p class="mh-eyebrow">MARINE HOUSE KOREA</p>
+        <h1 id="hero-title">성인인증부터<br><span>출입문 관리</span>까지</h1>
+        <p class="mh-hero-summary">뽑기방·가챠샵을 위한 무인 출입관리</p>
       </div>
-      <dl class="hero-facts">
-        <div><dt>Incorporation</dt><dd>2006.04</dd></div>
-        <div><dt>Main Business</dt><dd>Adult Verification · Access Control · Unmanned System</dd></div>
-        <div><dt>Service Scope</dt><dd>Design · Manufacturing · Installation · Maintenance</dd></div>
-      </dl>
+      <div class="mh-hero-actions">
+        <a class="mh-button mh-primary" href="#installation">우리 매장 설치 상담 <span aria-hidden="true">↗</span></a>
+        <a class="mh-button mh-outline" href="adult-verification.html">제품 자세히 보기 <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="mh-price">
+        <p>월 이용료 <strong>0<span>원</span></strong></p>
+        <span class="mh-price-note">PASS 인증비 별도</span>
+      </div>
+      <figure class="mh-hero-art">
+        <img src="assets/images/adult-verification-home-gold-20260910.webp" width="1086" height="1448" alt="신분증과 QR·PASS 인증을 지원하는 모델1 금경 성인인증기" fetchpriority="high" decoding="async">
+        <figcaption>MODEL 1 <span>·</span> 금경</figcaption>
+      </figure>
     </div>
-    <div class="hero-visual">
-      <img src="assets/images/hero-machine-window.jpg" alt="무인 리테일 장비 구성 참고 이미지">
-      <div class="hero-logo-card"><img src="assets/images/logo-full.png" alt="마린하우스코리아 로고"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span>CORE CAPABILITY</span>
-      <h2>화려함보다 중요한 것은 제조 기반과 운영 안정성입니다.</h2>
-      <p>무인 매장은 사진만 예쁘다고 끝나지 않습니다. 기기 품질, 결제 안정성, 상품 교체, 동선, 사후관리까지 맞아야 지속됩니다.</p>
-    </div>
-    <div class="capability-grid">
-      <article><b>01</b><h3>Hardware Engineering</h3><p>기구 설계, 제작, 조립, 설치 환경을 고려한 장비 구성.</p></article>
-      <article><b>02</b><h3>Software & IoT</h3><p>무인 운영, 원격 확인, 결제 연동, 운영 데이터 관리를 위한 프로그램 개발.</p></article>
-      <article><b>03</b><h3>Unmanned Retail</h3><p>자동판매기, 상품진열장, 크레인 게임기를 결합한 비대면 판매 솔루션.</p></article>
-      <article><b>04</b><h3>Arcade Machine</h3><p>가챠, 인형뽑기, 스마트푸시, 크레인 등 아케이드 게임기 공급과 운영 지원.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gray">
-  <div class="container two-col">
-    <div>
-      <span class="eyebrow">COMPANY INTRODUCTION</span>
-      <h2>고객 입장에서 연구개발하는 하이테크 솔루션 기업</h2>
-      <p>마린하우스코리아(주)는 자동화기기 관련 전기전자 및 IT 프로그램, 무인시스템, 오토벤딩머신을 개발하는 회사로서 Customer Value, Cost, Convenience, Communication을 기본으로 제품과 서비스를 설계합니다.</p>
-      <ul class="check-list">
-        <li>자동판매기 및 무인 시스템 개발 경험</li>
-        <li>아케이드 게임기, 사진자동판매기, 스마트 크레인 개발 기반</li>
-        <li>기기 공급, 설치, 유지관리, 상품 보급까지 연결된 현장형 운영</li>
+    <div class="mh-benefit-bar">
+      <ul class="mh-container mh-benefits">
+        <li><svg class="mh-icon" aria-hidden="true"><use href="#mh-id"></use></svg><span>신분증 + QR/PASS 인증</span></li>
+        <li><svg class="mh-icon" aria-hidden="true"><use href="#mh-door"></use></svg><span>자동문 무선 연동</span></li>
+        <li><svg class="mh-icon" aria-hidden="true"><use href="#mh-phone"></use></svg><span>앱 원격 문열림</span></li>
       </ul>
-      <a class="btn btn-dark" href="about.html">회사소개 자세히</a>
     </div>
-    <div class="image-stack">
-      <img src="assets/images/production-install.jpg" alt="기구 설계 및 조립 참고 이미지">
-      <img src="assets/images/machine-oneplus.jpg" alt="아케이드 장비 참고 이미지">
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-head narrow">
-      <span>PRODUCTS</span>
-      <h2>주요 제품 및 솔루션</h2>
-    </div>
-    <div class="product-cards">
-      <article><a href="adult-verification.html"><img src="assets/images/adult-verification-launch-20260725.webp" alt="마린하우스코리아 성인인증 출입문관리 시스템"></a><div><h3>성인인증 출입문관리 시스템</h3><p>QR·PASS 및 실물 신분증 인증과 출입문 제어를 연동하는 무인매장용 성인인증 출입통제 솔루션.</p><p><a href="adult-verification.html">성인인증 출입관리 자세히 보기 →</a></p></div></article>
-      <article><img src="assets/images/machine-toka-front.jpg" alt="가챠 장비 참고 이미지"><div><h3>가챠 · 캡슐 장비</h3><p>캡슐 상품, 피규어, 캐릭터 상품 판매를 위한 가챠 장비 구성.</p></div></article>
-      <article><img src="assets/images/machine-oneplus-front.jpg" alt="크레인 게임기"><div><h3>크레인 · 인형뽑기</h3><p>매장 체류 시간과 입구 흡입력을 만드는 아케이드 게임기.</p></div></article>
-      <article><img src="assets/images/display-case-lit.jpg" alt="상품진열장"><div><h3>상품진열장 · 무인판매대</h3><p>완구, 생활소품, 피규어 등 상품 판매용 잠금식 진열 솔루션.</p></div></article>
-      <article><img src="assets/images/history-01.jpg" alt="커피 자동판매기 개발 자료"><div><h3>자동판매기 · 무인 시스템</h3><p>커피, 사진, 소품, 생활용품 등 자동판매 시스템 개발 기반.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section section-dark">
-  <div class="container process-wrap">
-    <div class="section-head light">
-      <span>WORKFLOW</span>
-      <h2>도입 절차</h2>
-      <p>현장 조건과 운영 목적을 먼저 검토해 적합한 장비 구성과 운영 방식을 제안합니다.</p>
-    </div>
-    <ol class="process-list">
-      <li><strong>현장 검토</strong><span>매장 면적, 전기, 출입 동선, 시야 확보, 기존 업종을 확인합니다.</span></li>
-      <li><strong>장비 구성</strong><span>가챠, 크레인, 상품진열장, 자동판매기 비율을 구성합니다.</span></li>
-      <li><strong>설치·셋업</strong><span>장비 배치, 조명, 결제, 테스트 운영까지 점검합니다.</span></li>
-      <li><strong>운영 지원</strong><span>상품 보급, 점검, 유지관리, 교체 방향을 관리합니다.</span></li>
-    </ol>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head narrow">
-      <span>FIELD APPLICATION</span>
-      <h2>현장 적용 이미지</h2>
-    </div>
-    <div class="gallery-strip">
-      <img src="assets/images/store-window-toka.jpg" alt="가챠 장비 전면 예시">
-      <img src="assets/images/store-neon-inside.jpg" alt="무인 매장 내부">
-      <img src="assets/images/gacha-bank.jpg" alt="가챠 장비 참고 장비">
-      <img src="assets/images/store-ufo-window.jpg" alt="전면 창문 구성 참고">
-    </div>
-  </div>
-</section>
-<section class="section section-gray">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span>PRESS RELEASE</span>
-        <h2>보도자료</h2>
+  <section class="mh-features mh-section" id="adult-features" aria-labelledby="features-title">
+    <div class="mh-container">
+      <div class="mh-section-heading">
+        <p class="mh-eyebrow">ADULT VERIFICATION & ACCESS CONTROL</p>
+        <h2 id="features-title">인증부터 문 열림까지, <span>한 번에</span></h2>
       </div>
-      <p>마린하우스코리아의 주요 사업 소식과 무인기기 관련 공지사항을 확인할 수 있습니다.</p>
+      <div class="mh-feature-grid">
+        <article>
+          <svg class="mh-icon" aria-hidden="true"><use href="#mh-id"></use></svg>
+          <h3>간편한 성인인증</h3>
+          <p>신분증·QR/PASS 인증을<br>하나의 기기에서 이용합니다.</p>
+        </article>
+        <article>
+          <svg class="mh-icon" aria-hidden="true"><use href="#mh-door"></use></svg>
+          <h3>자동문 연동</h3>
+          <p>성인인증과 출입문 제어를 연결해<br>매장 출입을 관리합니다.</p>
+        </article>
+        <article>
+          <svg class="mh-icon" aria-hidden="true"><use href="#mh-phone"></use></svg>
+          <h3>원격 문열림</h3>
+          <p>관리자 앱을 통해<br>출입문을 원격으로 열 수 있습니다.</p>
+        </article>
+      </div>
     </div>
-    <div class="press-list press-preview">
-    <article class="press-card">
-      <div class="press-meta"><span>호수뉴스</span><time datetime="2026-07-14">2026.07.14</time></div>
-      <h3>마린하우스코리아, 성인 전용 무인 매장 출입 관리에 혁신을 가져오다</h3>
-      <p>성인인증 키오스크와 출입문 관리 시스템의 작동 방식과 현장 적용 계획을 소개한 기사입니다.</p>
-      <a class="press-link" href="https://www.mimint.co.kr/bbs/view/news/S1N12/5477335" target="_blank" rel="noopener noreferrer">기사 원문 보기 ↗</a>
-    </article>
-    <article class="press-card">
-      <div class="press-meta"><span>뉴스와이어</span><time datetime="2026-06-09">2026.06.09</time></div>
-      <h3>마린하우스코리아, 무인기기 토탈 솔루션 사업 확대</h3>
-      <p>아케이드 게임기와 자동판매기, 무인 리테일 솔루션 사업 확대 소식을 공식 발표했습니다.</p>
-      <a class="press-link" href="https://www.newswire.co.kr/newsRead.php?no=1036148" target="_blank" rel="noopener noreferrer">보도자료 원문 보기 ↗</a>
-    </article>
-  </div>
-            <div class="press-more-wrap"><a class="btn btn-dark" href="press.html">보도자료 전체보기</a></div>
-  </div>
-</section>
-<section class="cta-section">
-  <div class="container cta-box">
-    <div>
-      <span class="kicker-light">B2B CONSULTING</span>
-      <h2>기기 도입, 매장 구성, 유지관리까지 한 번에 검토합니다.</h2>
-      <p>현장 사진, 설치 공간, 예상 운영 형태를 보내주시면 필요한 장비 구성과 운영 방향을 검토해 드립니다.</p>
+  </section>
+
+  <section class="mh-install mh-section" id="installation" aria-labelledby="installation-title">
+    <div class="mh-container mh-install-grid">
+      <div class="mh-install-copy">
+        <p class="mh-eyebrow">INSTALLATION CONSULTATION</p>
+        <h2 id="installation-title">우리 매장에<br>설치할 수 있을까요?</h2>
+        <p>출입문 사진 <strong>2장</strong>으로<br>설치 가능 여부를 먼저 확인하세요.</p>
+        <span class="mh-small-note">기존 출입문과 상단 장치를 확인해 안내합니다.</span>
+      </div>
+      <div class="mh-consult-panel">
+        <div class="mh-photo-guide">
+          <figure>
+            <div class="mh-door-drawing">
+              <svg viewBox="0 0 160 142" aria-hidden="true" focusable="false"><defs><linearGradient id="doorGlass" x2="1" y2="1"><stop stop-color="#e8f5ff"/><stop offset="1" stop-color="#b9d9f4"/></linearGradient></defs><rect x="31" y="10" width="98" height="120" rx="3" fill="#fff" stroke="#718ba8" stroke-width="5"/><rect x="37" y="16" width="86" height="108" fill="url(#doorGlass)"/><path d="M80 16v108M40 38h80" stroke="#7392b1" stroke-width="3"/><path d="M49 110l52-66M64 110l51-66" stroke="#fff" stroke-width="4" opacity=".65"/><path d="M72 65v22M88 65v22" stroke="#145dcc" stroke-width="4" stroke-linecap="round"/><rect x="58" y="21" width="44" height="9" rx="2" fill="#1a4270"/><path d="M20 133h120" stroke="#a4b8cd" stroke-width="3"/></svg>
+            </div>
+            <figcaption><span>01</span> 출입문 전체</figcaption>
+          </figure>
+          <figure>
+            <div class="mh-door-drawing">
+              <svg viewBox="0 0 160 142" aria-hidden="true" focusable="false"><path d="M17 116V38h126v78" fill="#f7fbff" stroke="#849ab1" stroke-width="5"/><path d="M23 72h114M80 75v54" stroke="#a5bed5" stroke-width="4"/><rect x="26" y="28" width="108" height="31" rx="4" fill="#214871"/><rect x="36" y="36" width="41" height="13" rx="2" fill="#47759e"/><circle cx="116" cy="43" r="4" fill="#79deff"/><path d="M104 69v20M92 76q12 15 24 0" fill="none" stroke="#0b72ef" stroke-width="2.5" stroke-linecap="round"/><path d="M10 16h140v54" fill="none" stroke="#2e88f2" stroke-width="2" stroke-dasharray="5 5"/><circle cx="10" cy="16" r="4" fill="#2e88f2"/></svg>
+            </div>
+            <figcaption><span>02</span> 출입문 상단 장치</figcaption>
+          </figure>
+        </div>
+        <div class="mh-consult-actions">
+          <p class="mh-consult-steps"><span>사진 확인</span><b aria-hidden="true">→</b><span>설치 검토</span><b aria-hidden="true">→</b><span>견적 안내</span></p>
+          <a class="mh-button mh-primary" href="tel:1544-9187">설치 가능 여부 상담 <span aria-hidden="true">↗</span></a>
+          <p class="mh-consult-note">전화상담 후 사진을 보낼 담당자를 안내해 드립니다.</p>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-white" href="tel:1544-9187">전화상담 1544-9187</a>
-  </div>
-</section>
-<section class="section note-section"><div class="container"><p class="image-notice">※ 일부 이미지는 제품 이해를 돕기 위한 참고 이미지입니다.</p></div></section>
+  </section>
+
+  <section class="mh-support mh-section" id="aftercare" aria-labelledby="aftercare-title">
+    <div class="mh-container mh-support-grid">
+      <div>
+        <p class="mh-eyebrow">SUPPORT</p>
+        <h2 id="aftercare-title">설치 후 사용까지<br>안내합니다.</h2>
+      </div>
+      <article class="mh-support-item">
+        <svg class="mh-icon" aria-hidden="true"><use href="#mh-tools"></use></svg>
+        <div><h3>설치·사용 안내</h3><p>설치 환경 확인부터<br>기기 사용 방법까지 안내합니다.</p><a href="support.html">고객지원 보기 <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="mh-support-item">
+        <svg class="mh-icon" aria-hidden="true"><use href="#mh-headset"></use></svg>
+        <div><h3>원격 A/S 안내</h3><p>상담 후 현장 고객·직원의<br>연결 허용을 받아 원격으로 점검합니다.</p><a href="tel:1544-9187">A/S 상담하기 <span aria-hidden="true">→</span></a></div>
+      </article>
+    </div>
+    <div class="mh-container mh-company-links"><span>마린하우스코리아를 더 알아보세요.</span><a href="about.html">회사소개 <span aria-hidden="true">↗</span></a><a href="press.html">보도자료 <span aria-hidden="true">↗</span></a></div>
+  </section>
+
+  <section class="mh-other" aria-labelledby="other-title">
+    <div class="mh-container mh-other-grid">
+      <div><p class="mh-eyebrow">OTHER PRODUCTS</p><h2 id="other-title">마린하우스의<br>다른 무인기기</h2></div>
+      <div class="mh-other-links">
+        <a href="products.html#gacha"><svg class="mh-icon" aria-hidden="true"><use href="#mh-gacha"></use></svg><span>가챠</span></a>
+        <a href="products.html#crane"><svg class="mh-icon" aria-hidden="true"><use href="#mh-crane"></use></svg><span>인형뽑기</span></a>
+        <a href="products.html#display"><svg class="mh-icon" aria-hidden="true"><use href="#mh-display"></use></svg><span>진열장</span></a>
+      </div>
+      <a class="mh-text-link" href="products.html">전체 제품 보기 <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="mh-final" aria-labelledby="consult-title">
+    <div class="mh-container mh-final-grid">
+      <div><p class="mh-eyebrow">MARINE HOUSE KOREA</p><h2 id="consult-title">성인인증기 도입,<br>지금 상담하세요.</h2></div>
+      <a class="mh-call-number" href="tel:1544-9187"><svg class="mh-icon" aria-hidden="true"><use href="#mh-call"></use></svg>1544-9187</a>
+      <a class="mh-button mh-primary" href="tel:1544-9187">제품·설치 상담 <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
 </main>
+
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -215,9 +200,9 @@
   </div>
   <div class="container copyright">© Marine House Korea Co., Ltd. All rights reserved.</div>
 </footer>
-<div class="floating-buttons">
-  <a href="tel:1544-9187">전화상담</a>
-  <a href="location.html">오시는 길</a>
+<div class="mh-mobile-contact" aria-label="성인인증기 전화상담">
+  <span>제품·설치 상담<strong>1544-9187</strong></span>
+  <a href="tel:1544-9187"><svg class="mh-icon" aria-hidden="true"><use href="#mh-call"></use></svg>전화상담</a>
 </div>
 
 <div class="launch-popup" id="adultLaunchPopup" role="dialog" aria-modal="true" aria-labelledby="adultLaunchTitle" aria-hidden="true">
@@ -237,6 +222,18 @@
     </div>
   </div>
 </div>
-<script src="assets/js/main.js?v=20260910-blue-popup"></script>
+<svg class="mh-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="mh-id" viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="4"/><circle cx="17" cy="20" r="5"/><path d="M9 33c0-8 16-8 16 0M30 18h8M30 24h8M30 30h5"/></symbol>
+  <symbol id="mh-door" viewBox="0 0 48 48"><path d="M6 9l20-5v40L6 39zM26 8h7v32h-7M20 23v4M38 18c5 3 5 9 0 12M41 12c9 7 9 17 0 24"/></symbol>
+  <symbol id="mh-phone" viewBox="0 0 48 48"><rect x="12" y="3" width="24" height="42" rx="4"/><path d="M20 8h8M22 39h4"/><path d="M20 25l3 3 7-8"/></symbol>
+  <symbol id="mh-tools" viewBox="0 0 48 48"><path d="M29 7a12 12 0 0 0-14 15L5 33a6 6 0 0 0 9 8l11-11A12 12 0 0 0 40 16l-8 8-8-8z"/></symbol>
+  <symbol id="mh-headset" viewBox="0 0 48 48"><path d="M8 27v-6a16 16 0 0 1 32 0v6M40 32v5c0 5-8 7-14 7"/><rect x="4" y="23" width="9" height="13" rx="3"/><rect x="35" y="23" width="9" height="13" rx="3"/><path d="M22 43h6"/></symbol>
+  <symbol id="mh-gacha" viewBox="0 0 48 48"><rect x="9" y="3" width="30" height="41" rx="4"/><path d="M9 29h30M9 35h30M18 40h12M14 8h20"/><circle cx="19" cy="20" r="5"/><circle cx="29" cy="20" r="5"/></symbol>
+  <symbol id="mh-crane" viewBox="0 0 48 48"><rect x="8" y="3" width="32" height="41" rx="3"/><path d="M8 9h32M8 32h32M24 9v7M24 16l-8 8 4 3M24 16l8 8-4 3M15 39h7M31 37v3"/><path d="M16 31c-3-8 13-8 14 0"/></symbol>
+  <symbol id="mh-display" viewBox="0 0 48 48"><rect x="6" y="4" width="36" height="40" rx="3"/><path d="M6 17h36M6 30h36M24 4v40M12 12h6M30 12h6M12 25h6M30 25h6M12 38h6M30 38h6"/></symbol>
+  <symbol id="mh-call" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M15 12l6 7-4 4c3 5 5 7 10 10l4-4 7 6c-3 8-11 5-20-4S6 15 15 12z"/></symbol>
+</svg>
+
+<script src="assets/js/main.js?v=20260910-home"></script>
 </body>
 </html>

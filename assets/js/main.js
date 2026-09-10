@@ -5,6 +5,19 @@ if (toggle && gnb) {
   toggle.addEventListener('click', () => {
     const open = gnb.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  });
+  const closeMenu = () => {
+    gnb.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', '메뉴 열기');
+  };
+  gnb.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && gnb.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
   });
 }
 
