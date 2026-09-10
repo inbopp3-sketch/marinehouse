@@ -121,17 +121,17 @@ body.popup-open{overflow:hidden}
 .launch-popup{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:18px}
 .launch-popup.is-open{display:flex}
 .launch-popup-backdrop{position:absolute;inset:0;background:rgba(2,12,28,.76);backdrop-filter:blur(5px)}
-.launch-popup-panel{position:relative;z-index:1;width:min(560px,100%,calc((100vh - 158px)*.800285));width:min(560px,100%,calc((100dvh - 158px)*.800285));max-height:100%;display:flex;flex-direction:column;background:#0b0d10;border:1px solid #65523a;border-radius:16px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
-.launch-popup-toolbar{height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding-left:14px;border-bottom:1px solid #3d3428;color:#d6c5aa;font-size:12px}
+.launch-popup-panel{position:relative;z-index:1;width:min(560px,100%,calc((100vh - 158px)*.800285));width:min(560px,100%,calc((100dvh - 158px)*.800285));max-height:100%;display:flex;flex-direction:column;background:#051a3a;border:1px solid #286398;border-radius:16px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.launch-popup-toolbar{height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding-left:14px;border-bottom:1px solid #204e79;color:#bdd9f4;font-size:12px}
 .launch-popup-close{width:44px;height:44px;flex-shrink:0;border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer}
-.launch-popup-image{display:block;min-height:0;background:#0b0d10;text-align:center}
+.launch-popup-image{display:block;min-height:0;background:#051a3a;text-align:center}
 .launch-popup-image img{display:block;width:100%;height:auto;margin:auto}
-.launch-popup-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#101216;border-top:1px solid #3d3428;flex-shrink:0}
+.launch-popup-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#081d3b;border-top:1px solid #204e79;flex-shrink:0}
 .launch-popup-actions button,.launch-popup-actions a{min-height:44px;padding:5px 3px;display:flex;align-items:center;justify-content:center;border-radius:8px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;text-align:center}
-.launch-popup-day{border:1px solid #565149;background:#191b20;color:#e2ddd5}
+.launch-popup-day{border:1px solid #375a81;background:#102b4b;color:#dfebf8}
 .launch-popup-detail{border:1px solid #0a58ca;background:#0a58ca;color:#fff}
 .launch-popup-detail:hover{background:#074aa9}
-.launch-popup a:focus-visible,.launch-popup button:focus-visible{outline:3px solid #efc888;outline-offset:-4px}
+.launch-popup a:focus-visible,.launch-popup button:focus-visible{outline:3px solid #76d8ff;outline-offset:-4px}
 @media(max-height:500px){
   .launch-popup-panel{width:min(440px,100%);max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px)}
   .launch-popup-image{overflow-y:auto}

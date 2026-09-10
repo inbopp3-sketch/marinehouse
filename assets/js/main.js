@@ -14,7 +14,7 @@ if (toggle && gnb) {
   const popup = document.getElementById('adultLaunchPopup');
   if (!popup) return;
 
-  const storageKey = 'mhkAdultLaunchHiddenUntil20260909Gold';
+  const storageKey = 'mhkAdultLaunchHiddenUntil20260910Blue';
   const closeButtons = popup.querySelectorAll('[data-popup-close]');
   const hideTodayButton = document.getElementById('adultLaunchHideToday');
   let previousFocus = null;
