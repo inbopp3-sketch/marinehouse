@@ -1,0 +1,63 @@
+/* Real installation photographs, shared by the homepage and product page. */
+.installation-cases{padding:76px 0;background:#f4f8fc;scroll-margin-top:90px;color:#102541}
+.installation-cases__inner{width:min(1220px,calc(100% - 80px));margin-inline:auto}
+.installation-cases__heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:30px}
+.installation-cases__eyebrow{margin:0 0 12px;color:#0866cf;font-size:14px;font-weight:750;letter-spacing:.12em}
+.installation-cases h2{margin:0;font-size:clamp(28px,3vw,40px);line-height:1.3;letter-spacing:-.055em;word-break:keep-all}
+.installation-cases h2 span{color:#0866cf}
+.installation-cases__description{margin:16px 0 0;font-size:16px;line-height:1.65;color:#52657d}
+.installation-cases__link{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:#075cc1;font-size:16px;font-weight:750;white-space:nowrap}
+.installation-cases__link:hover{text-decoration:underline}
+.installation-cases__hint{display:none;font-size:14px;color:#52657d;margin:0 0 12px}
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.case-card{min-width:0;margin:0;background:#fff;border:1px solid #dbe5ef;border-radius:14px;overflow:hidden}
+.case-photo{position:relative;display:block;background:#0b1422;cursor:zoom-in}
+.case-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+.case-photo__zoom{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #ffffff65;border-radius:50%;background:#07172bd9;color:#fff;font-size:24px;font-weight:400;line-height:1;pointer-events:none}
+.case-photo:hover .case-photo__zoom{background:#0866cf}
+.case-card figcaption{padding:16px 18px;font-size:16px;font-weight:700;line-height:1.5}
+.case-more{margin-top:24px}
+.case-more>summary{display:flex;align-items:center;justify-content:center;min-height:52px;width:fit-content;margin:0 auto;padding:12px 24px;border:1px solid #a8bfd9;border-radius:8px;background:#fff;color:#154672;font-size:16px;font-weight:700;cursor:pointer;list-style:none}
+.case-more>summary::-webkit-details-marker{display:none}
+.case-more__less{display:none}
+.case-more[open] .case-more__more{display:none}
+.case-more[open] .case-more__less{display:inline}
+.case-more .case-grid{margin-top:24px;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.installation-cases a:focus-visible,.installation-cases summary:focus-visible,.case-viewer :focus-visible{outline:3px solid #188cff;outline-offset:-4px}
+.case-viewer{box-sizing:border-box;width:min(1120px,calc(100% - 32px));max-width:none;height:min(960px,calc(100dvh - 32px));max-height:none;padding:0;border:1px solid #ffffff26;border-radius:14px;color:#fff;background:#0c1625;overflow:hidden}
+.case-viewer::backdrop{background:#020912e8}
+.case-viewer[open]{display:flex;flex-direction:column}
+.case-viewer__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;padding:12px 18px;border-bottom:1px solid #ffffff20}
+.case-viewer__title{font-size:16px;font-weight:650;line-height:1.4;margin:0}
+.case-viewer button{font:inherit;cursor:pointer;color:#fff;border:1px solid #a3b3c955;background:#1b2b42;min-width:44px;min-height:44px;border-radius:8px;padding:8px 14px}
+.case-viewer button:hover{background:#285178}
+.case-viewer__close{font-size:24px!important;padding:0!important}
+.case-viewer__stage{display:flex;flex:1;min-height:0;min-width:0;align-items:center;justify-content:center;padding:12px}
+.case-viewer__image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.case-viewer__footer{display:flex;align-items:center;justify-content:center;gap:18px;flex-shrink:0;padding:12px 18px max(12px,env(safe-area-inset-bottom));border-top:1px solid #ffffff20}
+.case-viewer__count{font-size:16px;min-width:64px;text-align:center;font-variant-numeric:tabular-nums}
+html.case-viewer-open{overflow:hidden}
+@media(max-width:900px){
+  .installation-cases{padding:60px 0}
+  .installation-cases__inner{width:calc(100% - 40px)}
+  .installation-cases__heading{align-items:flex-start;flex-direction:column;gap:16px}
+  .case-grid{gap:16px}
+  .case-more .case-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+}
+@media(max-width:600px){
+  .installation-cases{padding:46px 0;scroll-margin-top:72px}
+  .installation-cases__inner{width:calc(100% - 36px)}
+  .installation-cases__heading{margin-bottom:20px}
+  .installation-cases__eyebrow{font-size:14px;letter-spacing:.08em}
+  .installation-cases__description{margin-top:12px}
+  .installation-cases__hint{display:block}
+  .case-grid--featured{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#a8bfd9 transparent}
+  .case-grid--featured>.case-card{flex:0 0 84%;scroll-snap-align:start}
+  .case-card figcaption{padding:13px 14px;font-size:16px}
+  .case-more .case-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .case-more .case-card figcaption{font-size:14px;padding:10px}
+  .case-viewer{width:calc(100% - 16px);height:calc(100dvh - 16px);border-radius:10px}
+  .case-viewer__bar{padding:10px 12px}
+  .case-viewer__stage{padding:8px}
+}
+@media(prefers-reduced-motion:reduce){.case-grid{scroll-behavior:auto}}
