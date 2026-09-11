@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "id": "installation-01",
+      "number": 1,
+      "title": "자동문 출입구 설치",
+      "tags": [
+        "자동문 연동",
+        "기둥 부착"
+      ],
+      "cover": 1,
+      "highlights": [
+        0,
+        2
+      ],
+      "photos": [
+        {
+          "image": "assets/images/installations/365-arcade-20260910/storefront.webp",
+          "title": "매장 외관",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/storefront-768.webp",
+          "alt": "매장 외관과 자동문 출입구에 설치된 성인인증기",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/entrance.webp",
+          "title": "자동문 출입구",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/entrance-768.webp",
+          "alt": "매장 자동문 오른쪽에 설치된 성인인증기와 출입 안내문",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/terminal-front.webp",
+          "title": "기기 정면",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/terminal-front-768.webp",
+          "alt": "매장 출입구에 설치된 금경 성인인증기 정면 근접 사진",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/automatic-door.webp",
+          "title": "자동문 전체",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/automatic-door-768.webp",
+          "alt": "성인인증기가 설치된 매장 자동문 전체 모습",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/terminal-side.webp",
+          "title": "기기 측면",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/terminal-side-768.webp",
+          "alt": "금색 차양과 본체의 설치 상태가 보이는 성인인증기 측면",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/installed-terminal.webp",
+          "title": "출입구 설치 모습",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/installed-terminal-768.webp",
+          "alt": "매장 내부와 출입구 기둥에 설치된 성인인증기",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/installation-position.webp",
+          "title": "설치 위치",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/installation-position-768.webp",
+          "alt": "자동문 옆 성인인증기의 설치 위치와 출입 안내문",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/entrance-notice.webp",
+          "title": "출입 안내문",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/entrance-notice-768.webp",
+          "alt": "매장 자동문에 부착된 출입 안내문 실물 사진",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/entrance-front.webp",
+          "title": "출입구 정면",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/entrance-front-768.webp",
+          "alt": "성인인증기와 안내문이 함께 보이는 매장 출입구 정면",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/365-arcade-20260910/terminal-closeup.webp",
+          "title": "기기 근접",
+          "thumbnail": "assets/images/installations/365-arcade-20260910/terminal-closeup-768.webp",
+          "alt": "성인인증 안내 화면과 금경 본체의 실제 근접 사진",
+          "width": 1536,
+          "height": 2048
+        }
+      ]
+    }
+  ]
+}
