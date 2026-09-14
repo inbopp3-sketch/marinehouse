@@ -293,7 +293,26 @@
   <symbol id="mh-call" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M15 12l6 7-4 4c3 5 5 7 10 10l4-4 7 6c-3 8-11 5-20-4S6 15 15 12z"/></symbol>
 </svg>
 
-<script src="assets/js/main.js?v=20260910-home"></script>
+
+<!-- Main promotional popup -->
+<div class="launch-popup" id="adultLaunchPopup" aria-hidden="true">
+  <div class="launch-popup-backdrop" data-popup-close></div>
+  <section class="launch-popup-panel" role="dialog" aria-modal="true" aria-labelledby="adultLaunchTitle">
+    <div class="launch-popup-toolbar">
+      <span id="adultLaunchTitle">성인인증 출입문관리 · 모델1 금경</span>
+      <button class="launch-popup-close" type="button" data-popup-close aria-label="팝업 닫기">×</button>
+    </div>
+    <a class="launch-popup-image" href="adult-verification.html" aria-label="모델1 성인인증기 제품 자세히 보기">
+      <img src="assets/images/adult-verification-popup-20260914.png" width="760" height="917" alt="성인인증부터 출입문 관리까지. 신분증 + QR/PASS 인증, 자동문 무선 연동, 앱 원격 문열림. 월 이용료 0원, PASS 인증비 별도. 제품·설치 상담 1544-9187." fetchpriority="high">
+    </a>
+    <div class="launch-popup-actions">
+      <button class="launch-popup-day" id="adultLaunchHideToday" type="button">오늘 하루 보지 않기</button>
+      <a class="launch-popup-detail" href="adult-verification.html">제품 자세히 보기</a>
+    </div>
+  </section>
+</div>
+
+<script src="assets/js/main.js?v=20260914-popup"></script>
 <script src="assets/js/installation-cases.js?v=20260911-case-albums" defer></script>
 </body>
 </html>
