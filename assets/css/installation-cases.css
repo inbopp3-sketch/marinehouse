@@ -9,6 +9,7 @@
 .installation-cases__link{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:52px;padding:12px 26px;border:1px solid #a8bfd9;border-radius:8px;background:#fff;color:#075cc1;font-size:1rem;font-weight:750}
 .installation-cases__link:hover{background:#e9f3ff}
 .case-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.case-project-grid[data-case-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .case-project{min-width:0;background:#fff;border:1px solid #dbe5ef;border-radius:14px;overflow:hidden;scroll-margin-top:90px}
 .case-project__cover{display:grid;background:#0b1422;cursor:zoom-in}
 .case-project__cover img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}

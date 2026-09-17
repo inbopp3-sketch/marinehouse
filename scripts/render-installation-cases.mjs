@@ -49,7 +49,7 @@ export function renderSection(cases, home = false) {
         <p class="installation-cases__eyebrow">REAL INSTALLATION</p>
         <h2 id="installation-cases-title">성인인증기 <span>실제 설치사례</span></h2>
       </div>
-      <div class="case-project-grid">
+      <div class="case-project-grid" data-case-count="${visible.length}">
 ${visible.map(card).join('\n')}
       </div>${home ? '\n      <div class="installation-cases__footer"><a class="installation-cases__link" href="adult-verification.html#installation-cases">설치사례 전체 보기 <span aria-hidden="true">→</span></a></div>' : ''}
     </div>

@@ -1,6 +1,78 @@
 {
   "cases": [
     {
+      "id": "installation-02",
+      "number": 2,
+      "title": "오락실 출입구 설치",
+      "tags": [
+        "유리 출입구",
+        "금색 본체"
+      ],
+      "cover": 0,
+      "highlights": [
+        1,
+        2
+      ],
+      "photos": [
+        {
+          "image": "assets/images/installations/installation-02/4117.webp",
+          "thumbnail": "assets/images/installations/installation-02/4117-768.webp",
+          "title": "기기 정면",
+          "alt": "오락실 유리 출입구에 설치된 성인인증기 정면과 안내 화면",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4114.webp",
+          "thumbnail": "assets/images/installations/installation-02/4114-768.webp",
+          "title": "출입구 전체",
+          "alt": "오락실 출입구 전체와 문 옆에 부착된 성인인증기",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4118.webp",
+          "thumbnail": "assets/images/installations/installation-02/4118-768.webp",
+          "title": "본체 측면",
+          "alt": "유리 출입구에 부착된 성인인증기의 금색 측면과 설치 상태",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4119.webp",
+          "thumbnail": "assets/images/installations/installation-02/4119-768.webp",
+          "title": "출입구 설치 위치",
+          "alt": "오락실 출입구 프레임 옆 성인인증기와 매장 내부",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4115.webp",
+          "thumbnail": "assets/images/installations/installation-02/4115-768.webp",
+          "title": "안내 화면 근접",
+          "alt": "성인인증 출입 안내 화면과 본체의 근접 사진",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4116.webp",
+          "thumbnail": "assets/images/installations/installation-02/4116-768.webp",
+          "title": "본체 전체 모습",
+          "alt": "출입 안내 화면과 하단 투입구가 보이는 성인인증기 전체 모습",
+          "width": 1152,
+          "height": 1536
+        },
+        {
+          "image": "assets/images/installations/installation-02/4113.webp",
+          "thumbnail": "assets/images/installations/installation-02/4113-768.webp",
+          "title": "매장 외관",
+          "alt": "매장 외부에서 촬영한 유리 출입구와 성인인증기 설치 모습",
+          "width": 1152,
+          "height": 1536
+        }
+      ]
+    },
+    {
       "id": "installation-01",
       "number": 1,
       "title": "자동문 출입구 설치",
