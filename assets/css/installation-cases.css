@@ -10,6 +10,7 @@
 .installation-cases__link:hover{background:#e9f3ff}
 .case-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .case-project-grid[data-case-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:901px){.case-project-grid[data-case-count="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .case-project{min-width:0;background:#fff;border:1px solid #dbe5ef;border-radius:14px;overflow:hidden;scroll-margin-top:90px}
 .case-project__cover{display:grid;background:#0b1422;cursor:zoom-in}
 .case-project__cover img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
