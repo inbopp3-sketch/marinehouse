@@ -6,6 +6,13 @@ on:
     paths:
       - 'index.html'
       - 'adult-verification.html'
+      - 'about.html'
+      - 'products.html'
+      - 'business.html'
+      - 'press.html'
+      - 'support.html'
+      - 'location.html'
+      - 'press/**.html'
       - 'sitemap.xml'
       - 'robots.txt'
       - 'fb1a9eebc00bcd84bd4bf2a288b49519.txt'
@@ -16,32 +23,44 @@ jobs:
   submit:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for GitHub Pages deployment
-        run: sleep 20
       - name: Verify key file
         run: |
-          curl --fail --retry 5 --retry-delay 5 https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt
-      - name: Submit homepage to Naver IndexNow
+          curl --fail --retry 5 --retry-delay 3 https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt
+
+      - name: Build IndexNow payload
         run: |
-          curl --fail --get 'https://searchadvisor.naver.com/indexnow' \
-            --data-urlencode 'url=https://www.marinehouse.kr/' \
-            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
-            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
-      - name: Submit adult verification page to Naver IndexNow
+          cat > indexnow.json <<'JSON'
+          {
+            "host": "www.marinehouse.kr",
+            "key": "fb1a9eebc00bcd84bd4bf2a288b49519",
+            "urlList": [
+              "https://www.marinehouse.kr/",
+              "https://www.marinehouse.kr/adult-verification.html",
+              "https://www.marinehouse.kr/about.html",
+              "https://www.marinehouse.kr/products.html",
+              "https://www.marinehouse.kr/business.html",
+              "https://www.marinehouse.kr/press.html",
+              "https://www.marinehouse.kr/support.html",
+              "https://www.marinehouse.kr/location.html",
+              "https://www.marinehouse.kr/press/marinehouse-unmanned-support.html",
+              "https://www.marinehouse.kr/press/marinehouse-retail-solution-lineup.html",
+              "https://www.marinehouse.kr/press/marinehouse-business-area-renewal.html",
+              "https://www.marinehouse.kr/press/marinehouse-adult-verification-access-control-launch.html"
+            ]
+          }
+          JSON
+
+      - name: Submit all public URLs to Naver IndexNow
+        continue-on-error: true
         run: |
-          curl --fail --get 'https://searchadvisor.naver.com/indexnow' \
-            --data-urlencode 'url=https://www.marinehouse.kr/adult-verification.html' \
-            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
-            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
-      - name: Submit homepage to IndexNow network
+          curl --fail-with-body \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -X POST 'https://searchadvisor.naver.com/indexnow' \
+            --data-binary @indexnow.json
+
+      - name: Submit all public URLs to IndexNow network
         run: |
-          curl --fail --get 'https://api.indexnow.org/indexnow' \
-            --data-urlencode 'url=https://www.marinehouse.kr/' \
-            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
-            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
-      - name: Submit adult verification page to IndexNow network
-        run: |
-          curl --fail --get 'https://api.indexnow.org/indexnow' \
-            --data-urlencode 'url=https://www.marinehouse.kr/adult-verification.html' \
-            --data-urlencode 'key=fb1a9eebc00bcd84bd4bf2a288b49519' \
-            --data-urlencode 'keyLocation=https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt'
+          curl --fail-with-body \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -X POST 'https://api.indexnow.org/indexnow' \
+            --data-binary @indexnow.json
