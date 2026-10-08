@@ -1,4 +1,4 @@
-name: SEO main page patch
+name: SEO recovery guardrails
 
 on:
   push:
@@ -9,60 +9,84 @@ permissions:
   contents: write
 
 jobs:
-  patch-index:
+  seo-recovery:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch homepage SEO and internal links
+
+      - name: Restore indexability, canonicals and OG URLs
         shell: python
         run: |
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
+          import re
 
-          replacements = {
-            '<title>마린하우스코리아(주) | 무인 자동화기기 제조·개발 전문기업</title>': '<title>성인인증 출입문관리 시스템 · 무인기기 | 마린하우스코리아(주)</title>',
-            '<meta name="description" content="마린하우스코리아는 성인인증기, 무인 자동화기기, 자동판매 시스템, 아케이드 게임기, 가챠·인형뽑기 장비를 제조·공급·설치합니다.">': '<meta name="description" content="마린하우스코리아는 성인인증 출입문관리 시스템, 성인인증 키오스크, 무인매장 출입통제와 무인 자동화기기·아케이드 장비를 공급·설치·지원합니다.">',
-            '<meta property="og:title" content="마린하우스코리아(주) | 무인 자동화기기 제조·개발 전문기업">': '<meta property="og:title" content="성인인증 출입문관리 시스템 · 무인기기 | 마린하우스코리아(주)">',
-            '<meta property="og:description" content="마린하우스코리아는 성인인증기, 무인 자동화기기, 자동판매 시스템, 아케이드 게임기, 가챠·인형뽑기 장비를 제조·공급·설치합니다.">': '<meta property="og:description" content="성인인증 키오스크와 출입문 제어를 연동한 무인매장 출입관리 시스템 및 무인 자동화기기를 공급·설치합니다.">',
-            '<span>UNMANNED SYSTEM · AUTOMATIC MECHANISM · ARCADE MACHINE</span>': '<span>ADULT VERIFICATION · ACCESS CONTROL · UNMANNED SYSTEM</span>',
-            '<nav class="gnb" id="gnb" aria-label="주요 메뉴"><a class="active" href="index.html">홈</a><a class="" href="about.html">회사소개</a><a class="" href="products.html">제품소개</a><a class="" href="business.html">사업영역</a><a class="" href="press.html">보도자료</a><a class="" href="support.html">고객지원</a><a class="" href="location.html">오시는 길</a></nav>': '<nav class="gnb" id="gnb" aria-label="주요 메뉴"><a class="active" href="index.html">홈</a><a class="" href="about.html">회사소개</a><a class="" href="adult-verification.html">성인인증 출입관리</a><a class="" href="products.html">제품소개</a><a class="" href="business.html">사업영역</a><a class="" href="press.html">보도자료</a><a class="" href="support.html">고객지원</a><a class="" href="location.html">오시는 길</a></nav>',
-            '<h1>무인기기의 공급, 설치, 유지관리까지<br>현장 조건에 맞춰 지원합니다.</h1>': '<h1>성인인증 출입문관리 시스템부터<br>무인기기 공급·설치·유지관리까지</h1>',
-            '<p>마린하우스코리아(주)는 자동화기기 관련 전기·전자, IT 프로그램, 무인 시스템, 자동판매기, 아케이드 게임기를 기반으로 제조·설치·운영 지원을 수행하는 기술 중심 기업입니다.</p>': '<p>마린하우스코리아(주)는 성인인증 키오스크와 출입문 제어를 연동한 성인인증 출입문관리 시스템을 비롯해 무인 자동화기기, 자동판매기, 아케이드 게임기의 공급·설치·운영 지원을 수행합니다.</p>',
-            '<a class="btn btn-primary" href="products.html">제품 라인업</a>\n        <a class="btn btn-outline-light" href="about.html">회사 소개</a>': '<a class="btn btn-primary" href="adult-verification.html">성인인증 출입관리</a>\n        <a class="btn btn-outline-light" href="products.html">전체 제품 라인업</a>',
-            '<div><dt>Main Business</dt><dd>Robotics · AI · IoT · Vending · Game Machine</dd></div>': '<div><dt>Main Business</dt><dd>Adult Verification · Access Control · Unmanned System</dd></div>',
-            '<h2>주요 제품 라인업</h2>': '<h2>주요 제품 및 솔루션</h2>',
-            '<div class="product-cards">\n      <article><img src="assets/images/machine-toka-front.jpg" alt="가챠 장비 참고 이미지">': '<div class="product-cards">\n      <article><a href="adult-verification.html"><img src="assets/images/adult-verification-popup-blue-slim-20260910.webp" alt="마린하우스코리아 성인인증 출입문관리 시스템"></a><div><h3>성인인증 출입문관리 시스템</h3><p>QR·PASS 및 실물 신분증 인증과 출입문 제어를 연동하는 무인매장용 성인인증 출입통제 솔루션.</p><p><a href="adult-verification.html">성인인증 출입관리 자세히 보기 →</a></p></div></article>\n      <article><img src="assets/images/machine-toka-front.jpg" alt="가챠 장비 참고 이미지">',
-            '<p>무인 자동화기기 · 아케이드 게임기 · 자동판매 시스템 · 매장 운영 솔루션</p>': '<p>성인인증 출입문관리 · 무인 자동화기기 · 아케이드 게임기 · 자동판매 시스템</p>',
-            '<ul><li><a href="about.html">회사소개</a></li><li><a href="products.html">제품소개</a></li>': '<ul><li><a href="about.html">회사소개</a></li><li><a href="adult-verification.html">성인인증 출입관리</a></li><li><a href="products.html">제품소개</a></li>',
-            'href="products.html#adult-verification" aria-label="성인인증기 신제품 소개로 이동"': 'href="adult-verification.html" aria-label="성인인증 출입문관리 시스템 소개로 이동"',
-            '<a class="launch-popup-detail" href="products.html#adult-verification">제품 자세히 보기</a>': '<a class="launch-popup-detail" href="adult-verification.html">성인인증 출입관리 자세히 보기</a>'
+          pages = {
+              'index.html': 'https://www.marinehouse.kr/',
+              'adult-verification.html': 'https://www.marinehouse.kr/adult-verification.html',
+              'about.html': 'https://www.marinehouse.kr/about.html',
+              'products.html': 'https://www.marinehouse.kr/products.html',
+              'business.html': 'https://www.marinehouse.kr/business.html',
+              'press.html': 'https://www.marinehouse.kr/press.html',
+              'support.html': 'https://www.marinehouse.kr/support.html',
+              'location.html': 'https://www.marinehouse.kr/location.html',
+              'press/marinehouse-unmanned-support.html': 'https://www.marinehouse.kr/press/marinehouse-unmanned-support.html',
+              'press/marinehouse-retail-solution-lineup.html': 'https://www.marinehouse.kr/press/marinehouse-retail-solution-lineup.html',
+              'press/marinehouse-business-area-renewal.html': 'https://www.marinehouse.kr/press/marinehouse-business-area-renewal.html',
+              'press/marinehouse-adult-verification-access-control-launch.html': 'https://www.marinehouse.kr/press/marinehouse-adult-verification-access-control-launch.html',
           }
 
-          changed = 0
-          for old, new in replacements.items():
-              if old in s:
-                  s = s.replace(old, new)
-                  changed += 1
+          robots_tag = '<meta name="robots" content="index,follow,max-image-preview:large">'
+
+          for filename, canonical in pages.items():
+              p = Path(filename)
+              if not p.exists():
+                  print('WARN missing file:', filename)
+                  continue
+
+              s = p.read_text(encoding='utf-8')
+              original = s
+
+              # Public pages must never retain a maintenance noindex directive.
+              robots_re = re.compile(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*["\']\s*/?>', re.I)
+              if robots_re.search(s):
+                  s = robots_re.sub(robots_tag, s, count=1)
               else:
-                  print('WARN missing:', old[:90])
+                  s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">',
+                                '<meta name="viewport" content="width=device-width, initial-scale=1">\n  ' + robots_tag,
+                                1)
 
-          schema = '''\n  <script type="application/ld+json">\n  {\n    "@context":"https://schema.org",\n    "@type":"Organization",\n    "name":"마린하우스코리아(주)",\n    "url":"https://www.marinehouse.kr/",\n    "telephone":"1544-9187",\n    "description":"성인인증 출입문관리 시스템과 무인 자동화기기, 아케이드 및 무인 리테일 장비를 공급·설치·지원하는 기업",\n    "knowsAbout":["성인인증기","성인인증 키오스크","성인인증 출입문관리","무인매장 출입통제","무인 자동화기기"]\n  }\n  </script>\n'''
-          if '"knowsAbout"' not in s:
-              s = s.replace('</head>', schema + '</head>')
-              changed += 1
+              canonical_tag = f'<link rel="canonical" href="{canonical}">'
+              canonical_re = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\'][^"\']+["\']\s*/?>', re.I)
+              if canonical_re.search(s):
+                  s = canonical_re.sub(canonical_tag, s, count=1)
+              else:
+                  s = s.replace(robots_tag, robots_tag + '\n  ' + canonical_tag, 1)
 
-          p.write_text(s, encoding='utf-8')
-          print('Applied changes:', changed)
-      - name: Commit homepage changes
+              og_url_tag = f'<meta property="og:url" content="{canonical}">'
+              og_url_re = re.compile(r'<meta\s+property=["\']og:url["\']\s+content=["\'][^"\']+["\']\s*/?>', re.I)
+              if og_url_re.search(s):
+                  s = og_url_re.sub(og_url_tag, s, count=1)
+              else:
+                  s = s.replace(canonical_tag, canonical_tag + '\n  ' + og_url_tag, 1)
+
+              if '홈페이지 점검 중' in s or '급여 지급 및 연락 문제' in s:
+                  raise SystemExit(f'Maintenance content still present in {filename}')
+
+              if s != original:
+                  p.write_text(s, encoding='utf-8')
+                  print('patched:', filename)
+              else:
+                  print('ok:', filename)
+
+      - name: Commit SEO recovery changes
         run: |
           if git diff --quiet; then
-            echo "No changes needed"
+            echo "No SEO recovery changes needed"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Strengthen homepage SEO for adult verification access control [skip ci]"
+          git add index.html adult-verification.html about.html products.html business.html press.html support.html location.html press/*.html
+          git commit -m "Restore canonical and index signals after maintenance [skip ci]"
           git push
