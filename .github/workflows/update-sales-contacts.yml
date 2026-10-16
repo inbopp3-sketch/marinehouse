@@ -22,23 +22,8 @@ jobs:
           from pathlib import Path
           import re
 
-          files = [
-              Path('index.html'),
-              Path('adult-verification.html'),
-              Path('about.html'),
-              Path('products.html'),
-              Path('business.html'),
-              Path('press.html'),
-              Path('support.html'),
-              Path('location.html'),
-              *Path('press').glob('*.html'),
-          ]
-
-          sales_block = '''<div class="sales-team-list" data-sales-teams aria-label="영업팀 연락처">
-      <p><strong>영업1팀</strong> <a href="tel:01076992187">010-7699-2187</a></p>
-      <p><strong>영업2팀</strong> <a href="tel:01056092187">010-5609-2187</a></p>
-    </div>'''
-
+          files = [Path('index.html'), Path('adult-verification.html'), Path('about.html'), Path('products.html'), Path('business.html'), Path('press.html'), Path('support.html'), Path('location.html'), *Path('press').glob('*.html')]
+          sales_block = '<div class="sales-team-list" data-sales-teams aria-label="영업팀 연락처">\n      <p><strong>영업1팀</strong> <a href="tel:01076992187">010-7699-2187</a></p>\n      <p><strong>영업2팀</strong> <a href="tel:01056092187">010-5609-2187</a></p>\n    </div>'
           block_re = re.compile(r'<div\s+class=["\']sales-team-list["\'][^>]*>.*?</div>', re.I | re.S)
 
           for p in files:
@@ -46,25 +31,20 @@ jobs:
                   continue
               s = p.read_text(encoding='utf-8')
               old = s
-
               if block_re.search(s):
                   s = block_re.sub(sales_block, s)
-
               s = s.replace('010-5603-2187', '010-7699-2187')
               s = s.replace('01056032187', '01076992187')
               s = s.replace('010 5603 2187', '010 7699 2187')
               s = s.replace('영업 1~4팀 상담 운영', '영업팀 상담 010-7699-2187 · 010-5609-2187')
               s = s.replace('영업1~4팀 상담 운영', '영업팀 상담 010-7699-2187 · 010-5609-2187')
               s = re.sub(r'\s*<p[^>]*>\s*<strong>영업[34]팀</strong>.*?</p>', '', s, flags=re.I | re.S)
-
               if s != old:
                   p.write_text(s, encoding='utf-8')
-                  print('updated', p)
 
       - name: Commit updated contacts
         run: |
           if git diff --quiet; then
-            echo "No contact changes needed"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -72,5 +52,3 @@ jobs:
           git add index.html adult-verification.html about.html products.html business.html press.html support.html location.html press/*.html
           git commit -m "Update website sales phone numbers [skip ci]"
           git push
-
-# Triggered 2026-10-16
