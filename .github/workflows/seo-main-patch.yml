@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore indexability, canonicals, OG URLs and sales contacts
+      - name: Restore indexability, canonicals and OG URLs
         shell: python
         run: |
           from pathlib import Path
@@ -37,74 +37,42 @@ jobs:
           }
 
           robots_tag = '<meta name="robots" content="index,follow,max-image-preview:large">'
-          sales_block = '''<div class="sales-team-list" data-sales-teams aria-label="영업팀 연락처">
-      <p><strong>영업1팀</strong> <a href="tel:01076992187">010-7699-2187</a></p>
-      <p><strong>영업2팀</strong> <a href="tel:01056092187">010-5609-2187</a></p>
-    </div>'''
 
           for filename, canonical in pages.items():
               p = Path(filename)
               if not p.exists():
-                  print('WARN missing file:', filename)
                   continue
-
               s = p.read_text(encoding='utf-8')
               original = s
-
-              # Public pages must never retain a maintenance noindex directive.
               robots_re = re.compile(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*["\']\s*/?>', re.I)
               if robots_re.search(s):
                   s = robots_re.sub(robots_tag, s, count=1)
               else:
-                  s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">',
-                                '<meta name="viewport" content="width=device-width, initial-scale=1">\n  ' + robots_tag,
-                                1)
-
+                  s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">', '<meta name="viewport" content="width=device-width, initial-scale=1">\n  ' + robots_tag, 1)
               canonical_tag = f'<link rel="canonical" href="{canonical}">'
               canonical_re = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\'][^"\']+["\']\s*/?>', re.I)
               if canonical_re.search(s):
                   s = canonical_re.sub(canonical_tag, s, count=1)
               else:
                   s = s.replace(robots_tag, robots_tag + '\n  ' + canonical_tag, 1)
-
               og_url_tag = f'<meta property="og:url" content="{canonical}">'
               og_url_re = re.compile(r'<meta\s+property=["\']og:url["\']\s+content=["\'][^"\']+["\']\s*/?>', re.I)
               if og_url_re.search(s):
                   s = og_url_re.sub(og_url_tag, s, count=1)
               else:
                   s = s.replace(canonical_tag, canonical_tag + '\n  ' + og_url_tag, 1)
-
-              # Keep only the two current sales contacts across the public site.
-              sales_block_re = re.compile(r'<div\s+class=["\']sales-team-list["\'][^>]*>.*?</div>', re.I | re.S)
-              if sales_block_re.search(s):
-                  s = sales_block_re.sub(sales_block, s)
-
-              s = s.replace('010-5603-2187', '010-7699-2187')
-              s = s.replace('01056032187', '01076992187')
-              s = s.replace('010 5603 2187', '010 7699 2187')
-              s = s.replace('영업 1~4팀 상담 운영', '영업팀 상담 010-7699-2187 · 010-5609-2187')
-              s = s.replace('영업1~4팀 상담 운영', '영업팀 상담 010-7699-2187 · 010-5609-2187')
-
-              # Remove any legacy sales team 3/4 rows if an older footer format remains.
-              s = re.sub(r'\s*<p[^>]*>\s*<strong>영업[34]팀</strong>.*?</p>', '', s, flags=re.I | re.S)
-
               if '홈페이지 점검 중' in s or '급여 지급 및 연락 문제' in s:
                   raise SystemExit(f'Maintenance content still present in {filename}')
-
               if s != original:
                   p.write_text(s, encoding='utf-8')
-                  print('patched:', filename)
-              else:
-                  print('ok:', filename)
 
-      - name: Commit website changes
+      - name: Commit SEO recovery changes
         run: |
           if git diff --quiet; then
-            echo "No website changes needed"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html adult-verification.html about.html products.html business.html press.html support.html location.html press/*.html
-          git commit -m "Update sales contacts and preserve SEO signals [skip ci]"
+          git commit -m "Restore canonical and index signals after maintenance [skip ci]"
           git push
