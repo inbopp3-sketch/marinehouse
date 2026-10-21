@@ -2,6 +2,8 @@
 """Notify IndexNow only after the exact sitemap and verification key are live."""
 from pathlib import Path
 import json
+import concurrent.futures
+import hashlib
 import time
 import urllib.error
 import urllib.request
@@ -18,13 +20,26 @@ def request(url, data=None):
 
 def main():
     expected=(ROOT/'sitemap.xml').read_bytes()
-    for attempt in range(25):
+    config=json.loads((ROOT/'content/seo-pages.json').read_text())
+    targets={page['url']:(ROOT/page['path']).read_bytes() for page in config['pages']}
+    for path in ['sitemap.xml','robots.txt','rss.xml','llms.txt']:
+        targets[BASE+path]=(ROOT/path).read_bytes()
+    def is_current(pair):
+        url,source=pair
         try:
-            status,body=request(BASE+'sitemap.xml')
-            if status==200 and body==expected:break
-        except (urllib.error.URLError,TimeoutError):pass
-        if attempt==24:raise SystemExit('Deployment sitemap is not current; refusing to submit stale URLs.')
+            stamp=hashlib.sha256(source).hexdigest()[:16]
+            status,body=request(url+'?indexnow-check='+stamp)
+            return url,status==200 and body==source
+        except (urllib.error.URLError,TimeoutError):return url,False
+    pending=dict(targets)
+    for attempt in range(25):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+            results=list(pool.map(is_current,pending.items()))
+        pending={url:targets[url] for url,ok in results if not ok}
+        if not pending:break
+        if attempt==24:raise SystemExit('Deployment is not current; refusing to submit stale URLs: '+', '.join(pending))
         time.sleep(6)
+    print(f'Verified {len(targets)} live files match the deployment source.')
     status,body=request(BASE+KEY+'.txt')
     if status!=200 or body.decode().strip()!=KEY:raise SystemExit('IndexNow verification key is not live.')
     doc=ET.fromstring(expected)
