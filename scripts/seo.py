@@ -122,7 +122,7 @@ def validate():
         web=[n for n in graph if n.get('@id')==url+'#webpage'];check(len(web)==1,f'{path}: missing canonical WebPage node')
         if path!='index.html':
             crumbs=[n for n in graph if n.get('@type')=='BreadcrumbList'];check(len(crumbs)==1,f'{path}: missing breadcrumb schema')
-        if path=='adult-verification.html':
+        if path in ['adult-verification.html','adult-verification-installation.html','adult-verification-cost.html']:
             for node in graph:
                 if node.get('@type')=='FAQPage':
                     for question in node['mainEntity']:

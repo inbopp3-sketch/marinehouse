@@ -13,6 +13,9 @@
 - [제품소개](https://www.marinehouse.kr/products.html): 성인인증기, 가챠, 인형뽑기와 진열장 안내.
 - [무인창업 안내](https://www.marinehouse.kr/startup/): 본사 지원형 창업 프로그램 안내.
 
+- [성인인증기 설치·자동문 연동 안내](https://www.marinehouse.kr/adult-verification-installation.html)
+- [성인인증기 가격·설치비 상담 안내](https://www.marinehouse.kr/adult-verification-cost.html)
+
 ## 회사와 고객지원
 - [회사소개](https://www.marinehouse.kr/about.html)
 - [사업영역](https://www.marinehouse.kr/business.html)

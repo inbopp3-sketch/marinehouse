@@ -96,6 +96,18 @@
       "url": "https://www.marinehouse.kr/site-map.html",
       "label": "전체 사이트맵",
       "lastmod": "2026-10-21"
+    },
+    {
+      "path": "adult-verification-installation.html",
+      "url": "https://www.marinehouse.kr/adult-verification-installation.html",
+      "label": "성인인증기 설치 안내",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "adult-verification-cost.html",
+      "url": "https://www.marinehouse.kr/adult-verification-cost.html",
+      "label": "성인인증기 가격·설치비 안내",
+      "lastmod": "2026-10-21"
     }
   ]
 }

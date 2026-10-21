@@ -54,9 +54,15 @@ if (toggle && gnb) {
   } catch (_) {
     // The popup should still work when browser storage is unavailable.
   }
-  if (!Number.isFinite(hiddenUntil) || Date.now() >= hiddenUntil) {
-    window.setTimeout(openPopup, 450);
+  const smallScreen = window.matchMedia('(max-width: 900px)');
+  if (!smallScreen.matches && (!Number.isFinite(hiddenUntil) || Date.now() >= hiddenUntil)) {
+    window.setTimeout(() => {
+      if (!smallScreen.matches) openPopup();
+    }, 450);
   }
+  document.querySelectorAll('[data-popup-open]').forEach((button) => {
+    button.addEventListener('click', openPopup);
+  });
 
   closeButtons.forEach((button) => button.addEventListener('click', closePopup));
 
