@@ -1,6 +1,78 @@
 {
   "cases": [
     {
+      "id": "installation-04",
+      "number": 4,
+      "title": "유리 출입구 성인인증기 설치",
+      "tags": [
+        "유리 출입구",
+        "금색 본체"
+      ],
+      "cover": 1,
+      "highlights": [
+        3,
+        4
+      ],
+      "photos": [
+        {
+          "image": "assets/images/installations/installation-04/terminal-and-notice.webp",
+          "thumbnail": "assets/images/installations/installation-04/terminal-and-notice-768.webp",
+          "title": "기기와 출입 안내문",
+          "alt": "유리 출입구에 설치된 성인인증기와 옆에 부착된 출입 안내문",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/terminal-front.webp",
+          "thumbnail": "assets/images/installations/installation-04/terminal-front-768.webp",
+          "title": "기기 정면",
+          "alt": "금색 본체의 성인인증기 정면과 성인인증 출입 안내 화면",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/terminal-closeup.webp",
+          "thumbnail": "assets/images/installations/installation-04/terminal-closeup-768.webp",
+          "title": "안내 화면 근접",
+          "alt": "성인인증기 안내 화면과 하단 신분증 투입구 근접 모습",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/entrance-wide.webp",
+          "thumbnail": "assets/images/installations/installation-04/entrance-wide-768.webp",
+          "title": "출입구 전체",
+          "alt": "유리 출입문과 성인인증기 설치 위치를 함께 촬영한 전경",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/terminal-side.webp",
+          "thumbnail": "assets/images/installations/installation-04/terminal-side-768.webp",
+          "title": "기기 측면",
+          "alt": "유리 출입구에 부착된 성인인증기의 금색 측면과 본체",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/entrance-angle.webp",
+          "thumbnail": "assets/images/installations/installation-04/entrance-angle-768.webp",
+          "title": "출입구 측면 전경",
+          "alt": "비스듬히 촬영한 유리 출입구와 성인인증기 설치 전경",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "image": "assets/images/installations/installation-04/entrance-front.webp",
+          "thumbnail": "assets/images/installations/installation-04/entrance-front-768.webp",
+          "title": "출입구 정면",
+          "alt": "정면에서 촬영한 유리 출입구의 성인인증기와 출입 안내문",
+          "width": 1536,
+          "height": 2048
+        }
+      ]
+    },
+    {
       "id": "installation-03",
       "number": 3,
       "title": "코인노래연습장 출입구 설치",
