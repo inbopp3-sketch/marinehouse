@@ -1,16 +1,16 @@
 User-agent: *
 Allow: /
-Disallow: /_press_upload_guide.html
-Disallow: /_press_template.html
+Disallow: /scripts/
+Disallow: /content/
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /_press_upload_guide.html
-Disallow: /_press_template.html
+Disallow: /scripts/
+Disallow: /content/
 
 User-agent: Yeti
 Allow: /
-Disallow: /_press_upload_guide.html
-Disallow: /_press_template.html
+Disallow: /scripts/
+Disallow: /content/
 
 Sitemap: https://www.marinehouse.kr/sitemap.xml

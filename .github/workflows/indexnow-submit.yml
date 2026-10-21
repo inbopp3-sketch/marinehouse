@@ -1,66 +1,24 @@
-name: Submit updated pages to IndexNow
+name: Submit deployed pages to IndexNow
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'index.html'
-      - 'adult-verification.html'
-      - 'about.html'
-      - 'products.html'
-      - 'business.html'
-      - 'press.html'
-      - 'support.html'
-      - 'location.html'
-      - 'press/**.html'
-      - 'sitemap.xml'
-      - 'robots.txt'
-      - 'fb1a9eebc00bcd84bd4bf2a288b49519.txt'
-      - '.github/workflows/indexnow-submit.yml'
+  workflow_run:
+    workflows: ['pages build and deployment']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   submit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Verify key file
-        run: |
-          curl --fail --retry 5 --retry-delay 3 https://www.marinehouse.kr/fb1a9eebc00bcd84bd4bf2a288b49519.txt
-
-      - name: Build IndexNow payload
-        run: |
-          cat > indexnow.json <<'JSON'
-          {
-            "host": "www.marinehouse.kr",
-            "key": "fb1a9eebc00bcd84bd4bf2a288b49519",
-            "urlList": [
-              "https://www.marinehouse.kr/",
-              "https://www.marinehouse.kr/adult-verification.html",
-              "https://www.marinehouse.kr/about.html",
-              "https://www.marinehouse.kr/products.html",
-              "https://www.marinehouse.kr/business.html",
-              "https://www.marinehouse.kr/press.html",
-              "https://www.marinehouse.kr/support.html",
-              "https://www.marinehouse.kr/location.html",
-              "https://www.marinehouse.kr/press/marinehouse-unmanned-support.html",
-              "https://www.marinehouse.kr/press/marinehouse-retail-solution-lineup.html",
-              "https://www.marinehouse.kr/press/marinehouse-business-area-renewal.html",
-              "https://www.marinehouse.kr/press/marinehouse-adult-verification-access-control-launch.html"
-            ]
-          }
-          JSON
-
-      - name: Submit all public URLs to Naver IndexNow
-        continue-on-error: true
-        run: |
-          curl --fail-with-body \
-            -H 'Content-Type: application/json; charset=utf-8' \
-            -X POST 'https://searchadvisor.naver.com/indexnow' \
-            --data-binary @indexnow.json
-
-      - name: Submit all public URLs to IndexNow network
-        run: |
-          curl --fail-with-body \
-            -H 'Content-Type: application/json; charset=utf-8' \
-            -X POST 'https://api.indexnow.org/indexnow' \
-            --data-binary @indexnow.json
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - name: Validate before submitting
+        run: python3 scripts/seo.py
+      - name: Wait for matching sitemap and submit public canonical URLs
+        run: python3 scripts/indexnow.py

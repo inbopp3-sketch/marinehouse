@@ -1,0 +1,24 @@
+# 마린하우스코리아(주)
+
+> 성인인증 출입문관리 시스템과 무인 자동화기기를 개발·공급·설치·지원하는 기업의 공식 홈페이지입니다.
+
+공식 사이트: https://www.marinehouse.kr/
+제품·설치 상담: 1544-9187
+회사 문의: 02-744-7779
+각 페이지의 공개 내용을 기준으로 제품 기능과 설치 조건을 확인해 주세요.
+
+## 제품과 설치
+- [성인인증기 모델1](https://www.marinehouse.kr/adult-verification.html): 신분증·QR·PASS 인증, 출입문 연동 안내와 FAQ.
+- [실제 설치사례](https://www.marinehouse.kr/cases.html): 공개된 현장별 기기와 출입구 사진.
+- [제품소개](https://www.marinehouse.kr/products.html): 성인인증기, 가챠, 인형뽑기와 진열장 안내.
+- [무인창업 안내](https://www.marinehouse.kr/startup/): 본사 지원형 창업 프로그램 안내.
+
+## 회사와 고객지원
+- [회사소개](https://www.marinehouse.kr/about.html)
+- [사업영역](https://www.marinehouse.kr/business.html)
+- [공식 언론보도·보도자료](https://www.marinehouse.kr/press.html)
+- [고객지원](https://www.marinehouse.kr/support.html)
+- [오시는 길·연락처](https://www.marinehouse.kr/location.html)
+- [전체 사이트맵](https://www.marinehouse.kr/site-map.html)
+- [XML 사이트맵](https://www.marinehouse.kr/sitemap.xml)
+- [공식 보도자료 RSS](https://www.marinehouse.kr/rss.xml)

@@ -51,7 +51,7 @@ export function renderSection(cases, home = false) {
       </div>
       <div class="case-project-grid" data-case-count="${visible.length}">
 ${visible.map(card).join('\n')}
-      </div>${home ? '\n      <div class="installation-cases__footer"><a class="installation-cases__link" href="adult-verification.html#installation-cases">설치사례 전체 보기 <span aria-hidden="true">→</span></a></div>' : ''}
+      </div>${home ? '\n      <div class="installation-cases__footer"><a class="installation-cases__link" href="cases.html">설치사례 전체 보기 <span aria-hidden="true">→</span></a></div>' : ''}
     </div>
   </section>`;
 }
@@ -77,14 +77,14 @@ async function main() {
   }
   const start = '  <!-- INSTALLATION_CASES_START -->';
   const end = '  <!-- INSTALLATION_CASES_END -->';
-  for (const name of ['index.html', 'adult-verification.html']) {
+  for (const name of ['index.html', 'adult-verification.html', 'cases.html']) {
     const path = resolve(root, name);
     const source = await readFile(path, 'utf8');
     const first = source.indexOf(start), last = source.indexOf(end);
     if (first < 0 || last < first) throw new Error(`Missing installation section markers in ${name}`);
     await writeFile(path, source.slice(0, first) + start + '\n' + renderSection(cases, name === 'index.html') + '\n' + source.slice(last));
   }
-  console.log(`Rendered ${cases.length} installation album(s) on both pages.`);
+  console.log(`Rendered ${cases.length} installation album(s) on all three pages.`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

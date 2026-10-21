@@ -1,0 +1,101 @@
+{
+  "origin": "https://www.marinehouse.kr/",
+  "pages": [
+    {
+      "path": "index.html",
+      "url": "https://www.marinehouse.kr/",
+      "label": "홈",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "adult-verification.html",
+      "url": "https://www.marinehouse.kr/adult-verification.html",
+      "label": "성인인증 출입관리",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "cases.html",
+      "url": "https://www.marinehouse.kr/cases.html",
+      "label": "설치사례",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "about.html",
+      "url": "https://www.marinehouse.kr/about.html",
+      "label": "회사소개",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "products.html",
+      "url": "https://www.marinehouse.kr/products.html",
+      "label": "제품소개",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "business.html",
+      "url": "https://www.marinehouse.kr/business.html",
+      "label": "사업영역",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "press.html",
+      "url": "https://www.marinehouse.kr/press.html",
+      "label": "언론보도·보도자료",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "support.html",
+      "url": "https://www.marinehouse.kr/support.html",
+      "label": "고객지원",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "location.html",
+      "url": "https://www.marinehouse.kr/location.html",
+      "label": "오시는 길",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "startup/index.html",
+      "url": "https://www.marinehouse.kr/startup/",
+      "label": "본사 지원형 무인창업",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "1/index.html",
+      "url": "https://www.marinehouse.kr/1/",
+      "label": "0원 창업 패키지",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "press/marinehouse-adult-verification-access-control-launch.html",
+      "url": "https://www.marinehouse.kr/press/marinehouse-adult-verification-access-control-launch.html",
+      "label": "마린하우스코리아, 무인 성인인증 키오스크·출입문 관리 시스템 출시",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "press/marinehouse-business-area-renewal.html",
+      "url": "https://www.marinehouse.kr/press/marinehouse-business-area-renewal.html",
+      "label": "마린하우스코리아, 무인 자동화기기 기반 현장형 운영지원 기업으로 사업 영역 정비",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "press/marinehouse-retail-solution-lineup.html",
+      "url": "https://www.marinehouse.kr/press/marinehouse-retail-solution-lineup.html",
+      "label": "무인 리테일 시장 대응 위한 아케이드·자동판매 솔루션 라인업 확대",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "press/marinehouse-unmanned-support.html",
+      "url": "https://www.marinehouse.kr/press/marinehouse-unmanned-support.html",
+      "label": "마린하우스코리아, 무인기기 공급·설치·유지관리 통합 지원 강화",
+      "lastmod": "2026-10-21"
+    },
+    {
+      "path": "site-map.html",
+      "url": "https://www.marinehouse.kr/site-map.html",
+      "label": "전체 사이트맵",
+      "lastmod": "2026-10-21"
+    }
+  ]
+}
