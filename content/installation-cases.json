@@ -1,6 +1,27 @@
 {
   "cases": [
     {
+      "id": "installation-05",
+      "number": 5,
+      "title": "오락실 출입구 성인인증기 설치",
+      "tags": [
+        "유리 출입구",
+        "신분증 인식형"
+      ],
+      "cover": 0,
+      "highlights": [],
+      "photos": [
+        {
+          "image": "assets/images/installations/installation-05/terminal-front.webp",
+          "thumbnail": "assets/images/installations/installation-05/terminal-front-768.webp",
+          "title": "기기 정면",
+          "alt": "오락실 유리 출입구에 설치된 금색 성인인증기의 안내 화면과 하단 신분증 투입구",
+          "width": 1152,
+          "height": 1536
+        }
+      ]
+    },
+    {
       "id": "installation-04",
       "number": 4,
       "title": "유리 출입구 성인인증기 설치",
