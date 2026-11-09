@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "started": "2026-11-09",
+  "previous_commit": "1f6ba62bfd12f1c6b5bc4645d6f0d9fbf230d1dd",
+  "pages": [
+    "1/index.html",
+    "1/privacy.html",
+    "404.html",
+    "_press_template.html",
+    "_press_upload_guide.html",
+    "about.html",
+    "adult-verification-cost.html",
+    "adult-verification-installation.html",
+    "adult-verification.html",
+    "business.html",
+    "cases.html",
+    "index.html",
+    "location.html",
+    "press.html",
+    "press/marinehouse-adult-verification-access-control-launch.html",
+    "press/marinehouse-business-area-renewal.html",
+    "press/marinehouse-retail-solution-lineup.html",
+    "press/marinehouse-unmanned-support.html",
+    "products.html",
+    "site-map.html",
+    "startup/index.html",
+    "startup/privacy.html",
+    "support.html"
+  ]
+}

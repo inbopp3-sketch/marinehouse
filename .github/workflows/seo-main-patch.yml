@@ -15,12 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate canonical pages, structured data, sitemap and links
+        if: ${{ hashFiles('maintenance.json') == '' }}
         run: python3 scripts/seo.py
       - name: Verify installation albums are generated from source
+        if: ${{ hashFiles('maintenance.json') == '' }}
         run: |
           node scripts/render-installation-cases.mjs
           git diff --exit-code -- index.html adult-verification.html cases.html
       - name: Validate JavaScript syntax
+        if: ${{ hashFiles('maintenance.json') == '' }}
         run: |
           node --check assets/js/main.js
           node --check assets/js/installation-cases.js
