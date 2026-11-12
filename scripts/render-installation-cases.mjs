@@ -79,7 +79,22 @@ async function main() {
   const end = '  <!-- INSTALLATION_CASES_END -->';
   for (const name of ['index.html', 'adult-verification.html', 'cases.html']) {
     const path = resolve(root, name);
-    const source = await readFile(path, 'utf8');
+    let source = await readFile(path, 'utf8');
+    if (name === 'cases.html') {
+      const photoCount = cases.reduce((sum, item) => sum + item.photos.length, 0);
+      source = source.replace(/현재 공개된 설치사례는 \d+건, 현장 사진은 \d+장입니다\./, `현재 공개된 설치사례는 ${cases.length}건, 현장 사진은 ${photoCount}장입니다.`);
+      const directory = cases.map((item) => `<li><a href="#${item.id}">${escape(label(item))} · ${escape(item.title)}</a><p>${item.tags.map(escape).join(' · ')} · 현장 사진 ${item.photos.length}장</p></li>`).join('');
+      source = source.replace(/<ul class="mh-seo-directory">[\s\S]*?<\/ul>/, `<ul class="mh-seo-directory">${directory}</ul>`);
+      source = source.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (_, open, body, close) => {
+        const data = JSON.parse(body);
+        for (const node of data['@graph'] || [data]) {
+          if (node['@id'] !== 'https://www.marinehouse.kr/cases.html#installations') continue;
+          node.numberOfItems = cases.length;
+          node.itemListElement = cases.map((item, index) => ({'@type': 'ListItem', position: index + 1, name: `${label(item)} · ${item.title}`, url: `https://www.marinehouse.kr/cases.html#${item.id}`}));
+        }
+        return open + '\n' + JSON.stringify(data, null, 2) + '\n  ' + close;
+      });
+    }
     const first = source.indexOf(start), last = source.indexOf(end);
     if (first < 0 || last < first) throw new Error(`Missing installation section markers in ${name}`);
     await writeFile(path, source.slice(0, first) + start + '\n' + renderSection(cases, name === 'index.html') + '\n' + source.slice(last));

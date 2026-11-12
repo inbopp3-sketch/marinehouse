@@ -29,8 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate before submitting
-        if: ${{ hashFiles('maintenance.json') == '' }}
         run: python3 scripts/seo.py
       - name: Wait for exact deployed pages and submit public canonical URLs
-        if: ${{ hashFiles('maintenance.json') == '' }}
         run: python3 scripts/indexnow.py

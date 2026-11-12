@@ -3,55 +3,224 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,follow">
-  <meta name="theme-color" content="#0b1e38">
-  <meta name="description" content="마린하우스코리아 홈페이지가 현재 점검 중입니다. 문의는 대표번호로 연락해 주세요.">
-  <title>홈페이지 점검 중 | 마린하우스코리아</title>
-  <link rel="icon" href="/assets/images/favicon.png">
-  <style>
-    :root { color-scheme: light; font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100svh; color: #172c46; background: radial-gradient(ellipse 70% 60% at 50% -8%, #e7f1ff 0%, transparent 75%), #f5f8fc; }
-    .page { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 48px 24px; }
-    .card { width: min(100%, 640px); text-align: center; }
-    .logo { width: 88px; height: 88px; display: block; margin: 0 auto 20px; border-radius: 20px; object-fit: contain; background: #fff; box-shadow: 0 12px 35px #163d681c; }
-    .brand { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -.045em; }
-    .en { margin: 5px 0 42px; color: #79899d; font-size: 11px; font-weight: 700; letter-spacing: .2em; }
-    .symbol { width: 76px; height: 76px; border-radius: 22px; margin: 0 auto 28px; display: grid; place-items: center; color: #fff; background: linear-gradient(145deg, #123b6d, #0b203e); box-shadow: 0 16px 34px #0b376b2b; }
-    .symbol svg { width: 36px; height: 36px; }
-    h1 { margin: 0; color: #0b2444; font-weight: 850; font-size: clamp(34px, 7vw, 48px); line-height: 1.28; letter-spacing: -.06em; }
-    .description { color: #62738a; font-size: 17px; line-height: 1.9; margin: 22px 0 0; word-break: keep-all; }
-    .rule { height: 1px; width: min(100%, 400px); margin: 42px auto 27px; background: #dce5f0; }
-    .contact-label { margin: 0 0 12px; color: #52667e; font-size: 13px; letter-spacing: .02em; font-weight: 700; }
-    .contacts { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
-    .contacts a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 17px; background: #fff; border: 1px solid #dce6f1; border-radius: 10px; color: #163c70; text-decoration: none; font-weight: 800; font-size: 15px; }
-    .contacts a:hover, .contacts a:focus-visible { border-color: #88addb; background: #eaf3ff; }
-    footer { color: #99a6b6; margin-top: 64px; font-size: 12px; letter-spacing: .04em; }
-    @media (max-width: 500px) { .page { padding: 38px 20px; } .en { margin-bottom: 36px; } .description { font-size: 15px; } .contacts { flex-direction: column; align-items: center; } .contacts a { width: min(100%, 250px); } }
-  </style>
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.marinehouse.kr/about.html">
+  <meta property="og:url" content="https://www.marinehouse.kr/about.html">
+  <title>회사소개 | 무인기기 제조·설치·유지관리 | 마린하우스코리아</title>
+  <meta name="description" content="마린하우스코리아의 무인기기 제조·개발 역량과 주요 사업, 제품 개발 자료, 회사 연혁을 소개합니다. 성인인증 출입관리부터 아케이드·무인 리테일 장비까지 확인하세요.">
+  <meta property="og:title" content="회사소개 | 무인기기 제조·설치·유지관리 | 마린하우스코리아">
+  <meta property="og:description" content="마린하우스코리아의 무인기기 제조·개발 역량과 주요 사업, 제품 개발 자료, 회사 연혁을 소개합니다. 성인인증 출입관리부터 아케이드·무인 리테일 장비까지 확인하세요.">
+  <meta property="og:image" content="https://www.marinehouse.kr/assets/images/logo-full.png">
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta property="og:site_name" content="마린하우스코리아">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="마린하우스코리아 제품 및 회사 안내">
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="1000">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="회사소개 | 무인기기 제조·설치·유지관리 | 마린하우스코리아">
+  <meta name="twitter:description" content="마린하우스코리아의 무인기기 제조·개발 역량과 주요 사업, 제품 개발 자료, 회사 연혁을 소개합니다. 성인인증 출입관리부터 아케이드·무인 리테일 장비까지 확인하세요.">
+  <meta name="twitter:image" content="https://www.marinehouse.kr/assets/images/logo-full.png">
+  <meta name="twitter:image:alt" content="마린하우스코리아 제품 및 회사 안내">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.marinehouse.kr/about.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "홈",
+          "item": "https://www.marinehouse.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "회사소개",
+          "item": "https://www.marinehouse.kr/about.html"
+        }
+      ]
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.marinehouse.kr/about.html#webpage",
+      "url": "https://www.marinehouse.kr/about.html",
+      "name": "회사소개 | 무인기기 제조·설치·유지관리 | 마린하우스코리아",
+      "description": "마린하우스코리아의 무인기기 제조·개발 역량과 주요 사업, 제품 개발 자료, 회사 연혁을 소개합니다. 성인인증 출입관리부터 아케이드·무인 리테일 장비까지 확인하세요.",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+        "@id": "https://www.marinehouse.kr/#website"
+      },
+      "publisher": {
+        "@id": "https://www.marinehouse.kr/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.marinehouse.kr/about.html#breadcrumb"
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="/assets/css/seo.css?v=20261021-guides">
+  <link rel="alternate" type="application/rss+xml" title="마린하우스코리아 공식 보도자료" href="https://www.marinehouse.kr/rss.xml">
 </head>
 <body>
-  <main class="page">
-    <div class="card">
-      <img class="logo" src="/assets/images/logo-full.png" alt="마린하우스코리아 로고">
-      <p class="brand">마린하우스코리아</p>
-      <p class="en">MARINE HOUSE KOREA</p>
-      <div class="symbol" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.65 5.65l2.13 2.13M16.22 16.22l2.13 2.13M18.35 5.65l-2.13 2.13M7.78 16.22l-2.13 2.13"/>
-          <circle cx="12" cy="12" r="4"/>
-        </svg>
-      </div>
-      <h1>홈페이지 점검 중</h1>
-      <p class="description">현재 홈페이지를 점검하고 있습니다.<br>보다 안정적인 서비스로 다시 찾아뵙겠습니다.<br>이용에 불편을 드려 죄송합니다.</p>
-      <div class="rule"></div>
-      <p class="contact-label">문의 전화</p>
-      <div class="contacts">
-        <a href="tel:01076992187" aria-label="010-7699-2187 전화 연결">010-7699-2187</a>
-        <a href="tel:01056092187" aria-label="010-5609-2187 전화 연결">010-5609-2187</a>
-      </div>
-      <footer>© MARINE HOUSE KOREA</footer>
+<a class="skip" href="#main">본문 바로가기</a>
+<div class="top-strip">
+  <div class="container top-strip-inner">
+    <span>UNMANNED SYSTEM · AUTOMATIC MECHANISM · ARCADE MACHINE</span>
+    <span>상담문의 010-7699-2187 · 010-5609-2187</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="마린하우스코리아 홈">
+      <img src="assets/images/logo-full.webp" alt="마린하우스코리아 로고" width="256" height="256" decoding="async">
+      <span><strong>마린하우스코리아(주)</strong><small>Manufacturing & Unmanned Retail Technology</small></span>
+    </a>
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴"><a class="" href="/">홈</a><a class="active" href="about.html">회사소개</a><a class="" href="products.html">제품소개</a><a class="" href="business.html">사업영역</a><a class="" href="press.html">보도자료</a><a class="" href="support.html">고객지원</a><a class="" href="location.html">오시는 길</a></nav>
+    <a class="header-cta" href="tel:010-7699-2187">전화상담</a>
+    <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="gnb" aria-expanded="false">☰</button>
+  </div>
+</header>
+<main id="main">
+<nav class="mh-breadcrumb" aria-label="현재 위치"><ol><li><a href="https://www.marinehouse.kr/">홈</a></li><li><span aria-current="page">회사소개</span></li></ol></nav><section class="page-hero">
+  <div class="container">
+    <span class="kicker-light">ABOUT COMPANY</span>
+    <h1>제조 기반의 무인 리테일 기술 기업</h1>
+    <p>마린하우스코리아(주)는 자동화기기, 무인 시스템, 자동판매기, 아케이드 게임기 분야에서 고객 관점의 기술 개발과 현장 적용을 지향합니다.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container two-col align-start">
+    <div>
+      <span class="eyebrow">INTRODUCTION</span>
+      <h2>현재에 만족하지 않고 더 나은 고객 만족을 위한 기술 개발을 지속합니다.</h2>
+      <p>마린하우스코리아(주)는 자동화기기 관련 전기·전자 및 IT 프로그램, 무인시스템, 오토벤딩머신을 개발하는 회사입니다. 고객 입장에서 연구개발하는 4C 차별화 전략을 바탕으로 다양한 무인화 프로젝트와 아케이드 장비 사업을 수행합니다.</p>
+      <p>제조 및 연구개발 업무를 기반으로 제품의 단가와 품질 경쟁력을 높이고, 고객사의 사업에 실질적인 힘이 되는 솔루션을 제공하는 것을 목표로 합니다.</p>
     </div>
-  </main>
+    <div class="profile-card">
+      <img src="assets/images/logo-full.webp" alt="마린하우스코리아 로고" width="256" height="256" decoding="async">
+      <table>
+        <tr><th>Company</th><td>마린하우스코리아(주)</td></tr>
+        <tr><th>CEO</th><td>이민성</td></tr>
+        <tr><th>Incorporation</th><td>2006.04</td></tr>
+        <tr><th>Main Business</th><td>Robotics, AI, IoT, Big Data, Hardware, Software, Vending Machine, Game Machine</td></tr>
+        <tr><th>Core Capability</th><td>기구 설계 · 제조 · 소프트웨어 · 설치 · 유지관리</td></tr>
+        <tr><th>Address</th><td>김포시 대곶면 약암리 608-6 [도로명: 약암로 843-36]</td></tr>
+        
+        
+      <tr><th>Sales Team 1</th><td><a href="tel:01076992187">010-7699-2187</a></td></tr>
+      <tr><th>Sales Team 2</th><td><a href="tel:01056092187">010-5609-2187</a></td></tr>
+      
+      
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-head">
+      <span>4C STRATEGY</span>
+      <h2>고객 입장에서 설계하는 차별화 전략</h2>
+    </div>
+    <div class="four-grid">
+      <article><h3>Customer Value</h3><p>고객 사업에 실질적으로 필요한 기능과 운영 가치를 우선합니다.</p></article>
+      <article><h3>Cost to the Customer</h3><p>초기 도입비와 유지비를 함께 고려한 현실적인 구성을 제안합니다.</p></article>
+      <article><h3>Convenience</h3><p>관리자와 사용자가 쉽게 운영할 수 있는 구조를 설계합니다.</p></article>
+      <article><h3>Communication</h3><p>도입 전후 현장 상황을 반영하며 필요한 개선을 이어갑니다.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="image-frame"><img src="assets/images/history-09.jpg" alt="개발 제품 포트폴리오 자료" width="1200" height="900" decoding="async" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">R&D</span>
+      <h2>연구개발과 핵심기술</h2>
+      <ul class="check-list strong">
+        <li><b>연구개발</b> 지속적인 연구개발을 바탕으로 무인 시스템과 자동화기기 분야를 확장합니다.</li>
+        <li><b>핵심기술</b> 아케이드 게임기, 자동판매기, 무선 매출 확인 앱, 무인 운영 시스템 기술을 기반으로 합니다.</li>
+        <li><b>보유기술</b> 게임기 개발, 사진 인화기, 자동판매기, 카드 단말기 연동, 로봇 자동화, 자동 커피머신, 무인판매대 기술.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-head narrow">
+      <span>HISTORY</span>
+      <h2>주요 개발 이력</h2>
+    </div>
+    <div class="timeline">
+      <div><b>2019</b><p>Xole Caf’e 커피 자동판매기, 무인 성인용품 프랜차이즈, 메가박스 포토부스 입점, 공용 무선 카드단말기 앱, 성인인증기 개발.</p></div>
+      <div><b>2018</b><p>게임을 부가적으로 제공하는 자동판매기 특허, 무선 매출 확인 앱 특허 출원, Dozer Vending Machine, Vending Crane, C-Crane 개발.</p></div>
+      <div><b>2017</b><p>청춘출력소 포토 자동판매기, 메모리박스 사진 자동판매기, Photoday24 웨딩사진기 개발.</p></div>
+      <div><b>2016</b><p>솜사탕 자동판매기, 피톤치드 휘산기, 전자담배 자동판매기, 꽃 자동판매기, Ex-box 게임기 개발.</p></div>
+      <div><b>2015</b><p>멀티 자동판매기 U-Vending Machine, Smart Crane 개발.</p></div>
+      <div><b>2014</b><p>Smart Push 게임기, Cafe 2 min 커피 자동판매기, 골프장갑 자동판매기, 미니크레인, Smart Catcher 개발.</p></div>
+      <div><b>2010~2013</b><p>IVANA 스크린 골프, 캡틴포인트 게임기, Star Shot, Good Shot 등 아케이드 및 무인 장비 개발.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head narrow"><span>ARCHIVE</span><h2>개발 제품 자료</h2></div>
+    <div class="history-gallery">
+      <figure><img src="assets/images/history-01.jpg" alt="개발 제품 자료 1" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 01</figcaption></figure><figure><img src="assets/images/history-02.jpg" alt="개발 제품 자료 2" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 02</figcaption></figure><figure><img src="assets/images/history-03.jpg" alt="개발 제품 자료 3" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 03</figcaption></figure><figure><img src="assets/images/history-04.jpg" alt="개발 제품 자료 4" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 04</figcaption></figure><figure><img src="assets/images/history-05.jpg" alt="개발 제품 자료 5" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 05</figcaption></figure><figure><img src="assets/images/history-06.jpg" alt="개발 제품 자료 6" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 06</figcaption></figure><figure><img src="assets/images/history-07.jpg" alt="개발 제품 자료 7" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 07</figcaption></figure><figure><img src="assets/images/history-08.jpg" alt="개발 제품 자료 8" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 08</figcaption></figure><figure><img src="assets/images/history-09.jpg" alt="개발 제품 자료 9" width="1200" height="900" decoding="async" loading="lazy"><figcaption>Development archive 09</figcaption></figure>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="container cta-box">
+    <div>
+      <span class="kicker-light">B2B CONSULTING</span>
+      <h2>기기 도입, 매장 구성, 유지관리까지 한 번에 검토합니다.</h2>
+      <p>현장 사진, 설치 공간, 예상 운영 형태를 보내주시면 필요한 장비 구성과 운영 방향을 검토해 드립니다.</p>
+    </div>
+    <a class="btn btn-white" href="tel:010-7699-2187">전화상담 010-7699-2187</a>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/images/logo-full.webp" alt="마린하우스코리아 로고" width="256" height="256" decoding="async">
+      <div>
+        <h3>마린하우스코리아(주)</h3>
+        <p>무인 자동화기기 · 아케이드 게임기 · 자동판매 시스템 · 매장 운영 솔루션</p>
+      </div>
+    </div>
+    <div>
+      <h4>CONTACT</h4>
+      <p>주소: 김포시 대곶면 약암리 608-6 [도로명: 약암로 843-36]</p>
+      
+      <div class="sales-team-list" data-sales-teams aria-label="영업팀 연락처">
+      <p><strong>영업1팀</strong> <a href="tel:01076992187">010-7699-2187</a></p>
+      <p><strong>영업2팀</strong> <a href="tel:01056092187">010-5609-2187</a></p>
+    </div>
+      
+    </div>
+    <div>
+      <h4>SITE MAP</h4>
+      <ul><li><a href="about.html">회사소개</a></li><li><a href="products.html">제품소개</a></li><li><a href="business.html">사업영역</a></li><li><a href="press.html">보도자료</a></li><li><a href="support.html">고객지원</a></li><li><a href="location.html">오시는 길</a></li></ul>
+    </div>
+  </div>
+  <div class="container copyright">© Marine House Korea Co., Ltd. All rights reserved.</div>
+<nav class="mh-seo-footer" aria-label="관련 메뉴"><a href="/adult-verification.html">성인인증기</a><a href="/cases.html">설치사례</a><a href="/startup/">무인창업 안내</a><a href="/adult-verification-installation.html">설치 안내</a><a href="/adult-verification-cost.html">가격·설치비 안내</a><a href="/site-map.html">전체 사이트맵</a></nav></footer>
+<div class="floating-buttons">
+  <a href="tel:010-7699-2187">전화상담</a>
+  <a href="location.html">오시는 길</a>
+</div>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
